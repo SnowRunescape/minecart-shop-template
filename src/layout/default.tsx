@@ -1,12 +1,22 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const Default = () => {
-
   return (
-      <>
-        <Outlet />
-      </>
+      <div className="flex flex-col gap-10">
+        <header className="flex gap-3 bg-gray-800 p-3">
+          <Link to="/" className="bg-white py-2 px-4">Inicio</Link>
+          <Link to="/shop" className="bg-white py-2 px-4">Loja</Link>
+        </header>
+
+        <div className="container">
+          <Outlet />
+        </div>
+
+        <footer className="text-center">
+          Demo ® Todos os direitos reservados!
+        </footer>
+      </div>
   );
 }
 
