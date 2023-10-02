@@ -7,6 +7,8 @@ const Default = () => {
         <header className="flex gap-3 bg-gray-800 p-3">
           <Link to="/" className="bg-white py-2 px-4">Inicio</Link>
           <Link to="/shop" className="bg-white py-2 px-4">Loja</Link>
+          <Link to="/rules" className="bg-white py-2 px-4">Regras</Link>
+          <Link to="/team" className="bg-white py-2 px-4">Equipe</Link>
         </header>
 
         <div className="container">
