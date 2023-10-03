@@ -1,10 +1,20 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import NotFound from '../../components/NotFound';
 import RuleComponent from '../../components/Rule';
-import { Rule } from 'minecart-sdk';
+import { Rule, minecart } from 'minecart-sdk';
 
 const Rules = () => {
   const [rules, setRules] = useState<Rule[]>([]);
+
+  useMemo(() => {
+    const fetchTeam = async () => {
+      const team = await minecart.rules.all();
+
+      setRules(team);
+    }
+
+    fetchTeam();
+  }, []);
 
   if (!rules.length) {
     return (
