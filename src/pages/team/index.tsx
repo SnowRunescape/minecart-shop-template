@@ -1,22 +1,16 @@
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import NotFound from '../../components/NotFound';
-import { Team as TeamType, minecart } from 'minecart-sdk';
 import { getHelmByUsername } from '../../helpers/minecraft';
+import { useGetTeam } from '../../services/team';
 
 const Team = () => {
-  const [team, setTeam] = useState<TeamType[]>([]);
+  const { data: team, isLoading } = useGetTeam();
 
-  useMemo(() => {
-    const fetchTeam = async () => {
-      const team = await minecart.team.all();
+  if (isLoading) {
+    return "carregando";
+  }
 
-      setTeam(Object.values(team));
-    }
-
-    fetchTeam();
-  }, []);
-
-  if (!team.length) {
+  if (!team?.length) {
     return (
       <NotFound
         title="Nenhuma equipe publicada"

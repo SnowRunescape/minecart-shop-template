@@ -1,22 +1,16 @@
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import NotFound from '../../components/NotFound';
 import RuleComponent from '../../components/Rule';
-import { Rule, minecart } from 'minecart-sdk';
+import { useGetRules } from '../../services/rules';
 
 const Rules = () => {
-  const [rules, setRules] = useState<Rule[]>([]);
+  const {data: rules, isLoading} = useGetRules();
 
-  useMemo(() => {
-    const fetchTeam = async () => {
-      const team = await minecart.rules.all();
+  if (isLoading) {
+    return "carregando";
+  }
 
-      setRules(team);
-    }
-
-    fetchTeam();
-  }, []);
-
-  if (!rules.length) {
+  if (!rules?.length) {
     return (
       <NotFound
         title="Nenhuma regra publicada"
