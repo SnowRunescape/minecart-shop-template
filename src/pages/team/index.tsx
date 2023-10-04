@@ -1,7 +1,7 @@
 import React from 'react';
 import NotFound from '../../components/NotFound';
-import { getHelmByUsername } from '../../helpers/minecraft';
 import { useGetTeam } from '../../services/team';
+import TeamComponent from '../../components/Team';
 
 const Team = () => {
   const { data: team, isLoading } = useGetTeam();
@@ -21,24 +21,7 @@ const Team = () => {
 
   return (
     <div className="flex flex-col gap-3">
-      {team.map(value => {
-        return (
-          <div key={value.id} className="bg-gray-100">
-            <div>{value.team}</div>
-
-            <div>
-              {value.members.map(member => {
-                return (
-                  <>
-                    <img src={getHelmByUsername(member.name)} />
-                    <div>{member.name}</div>
-                  </>
-                );
-              })}
-            </div>
-          </div>
-        );
-      })}
+      {team.map(value => <TeamComponent key={value.id} team={value}/>)}
     </div>
   );
 }
