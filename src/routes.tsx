@@ -5,6 +5,8 @@ import Default from "./layout/default";
 import Shop from "./pages/shop";
 import Rules from "./pages/rules";
 import Team from "./pages/team";
+import Cart from "./pages/cart";
+import CartProfile from "./pages/cart/profile";
 
 const routeElements = [
   <Route element={<Default />}>
@@ -12,6 +14,8 @@ const routeElements = [
     <Route path="/shop" element={<Shop />} />
     <Route path="/rules" element={<Rules />} />
     <Route path="/team" element={<Team />} />
+    <Route path="/cart" element={<Cart />} />
+    <Route path="/cart/profile" element={<CartProfile />} />
   </Route>
 ];
 
