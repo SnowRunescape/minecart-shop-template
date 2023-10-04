@@ -27,11 +27,11 @@ const Team = () => {
             <div>{value.team}</div>
 
             <div>
-              {Object.values(value.members).map(member => {
+              {value.members.map(member => {
                 return (
                   <>
-                    <img src={getHelmByUsername(member)} />
-                    <div>{member}</div>
+                    <img src={getHelmByUsername(member.name)} />
+                    <div>{member.name}</div>
                   </>
                 );
               })}
