@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+  @apply bg-gray-200;
+  @apply rounded;
+
+  padding: 4px 12px;
+
+  &.btn-success {
+    @apply bg-green-600;
+    @apply text-white;
+  }
+}
+
+.link {
+  @apply text-cyan-400;
+}
