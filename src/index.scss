@@ -12,6 +12,11 @@
     @apply bg-green-600;
     @apply text-white;
   }
+
+  &.btn-danger {
+    @apply bg-red-400;
+    @apply text-white;
+  }
 }
 
 .link {
