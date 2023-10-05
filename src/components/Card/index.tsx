@@ -9,10 +9,12 @@ const Card = (props: CardProps) => {
   } = props;
 
   return (
-    <div className="border">
-      <h2 className={`border-b p-3 ${backgroundTitle}`}>
-        {title}
-      </h2>
+    <div className="w-full border">
+      {title && (
+        <h2 className={`border-b p-3 ${backgroundTitle}`}>
+          {title}
+        </h2>
+      )}
 
       <div className="p-3">
         {children}
