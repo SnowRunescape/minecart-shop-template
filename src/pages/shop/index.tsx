@@ -8,6 +8,8 @@ import Card from '../../components/Card'
 const Shop = () => {
   const { data: products, isLoading } = useGetProducts();
 
+  const categories = [];
+
   if (isLoading) {
     return "carregando";
   }
@@ -23,7 +25,8 @@ const Shop = () => {
 
   return (
     <div className="flex gap-3">
-      <CategoriesBar categories={[]} />
+      {!!categories.length && <CategoriesBar categories={categories} />}
+
 
       <Card>
         <div className="grid grid-cols-2 w-full gap-4">
