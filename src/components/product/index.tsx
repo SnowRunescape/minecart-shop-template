@@ -20,7 +20,10 @@ const Product = (props: ProductProps) => {
           height: 300,
           maxHeight: '189.75px',
         }}>
-          <img src={product.archive_url} className="max-h-full inline" />
+          <img
+            src={product.archive_url}
+            className="relative max-h-full inline top-2/4 translate-y-[-50%]"
+          />
         </div>
 
         <div className="flex items-center justify-center text-xl" style={{
