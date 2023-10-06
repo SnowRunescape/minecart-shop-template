@@ -21,7 +21,7 @@ const Team = () => {
 
   return (
     <div className="flex flex-col gap-3">
-      {team.map(value => <TeamComponent key={value.id} team={value}/>)}
+      {team.map(team => <TeamComponent key={team.id} team={team}/>)}
     </div>
   );
 }

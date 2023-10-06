@@ -2,14 +2,15 @@ import React from 'react'
 import { NewsProps } from './types';
 import Card from './../Card'
 import { getHelmByUsername } from '../../helpers/minecraft';
+import Img from '../Img';
 
 const News = (props: NewsProps) => {
-  const { posted_by, title, description } = props.news;
+  const { posted_by, title, news, archive_url } = props.news;
 
   return (
     <Card>
       <div className="flex gap-2 items-center pb-3">
-        <img src={getHelmByUsername(posted_by)} alt="" />
+        <Img className="rounded" src={getHelmByUsername(posted_by)} />
 
         <div>
           <div>Postado por <b>{posted_by}</b></div>
@@ -17,16 +18,15 @@ const News = (props: NewsProps) => {
         </div>
       </div>
 
-      <div className="p-5" style={{
+      <div className="p-5 bg-cover bg-center" style={{
         backgroundColor: 'red',
         minHeight: 140,
+        backgroundImage: `url('${archive_url}')`,
       }}>
         {title}
       </div>
 
-      <div>
-        {description}
-      </div>
+      <div dangerouslySetInnerHTML={{__html: news}} />
     </Card>
   );
 }

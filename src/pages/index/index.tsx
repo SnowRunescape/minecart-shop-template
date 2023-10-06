@@ -19,7 +19,11 @@ const Index = () => {
     )
   }
 
-  return news.map(news => <News key={news.id} news={news} />);
+  return (
+    <div className="flex flex-col gap-3">
+      {news.map(news => <News key={news.id} news={news} />)}
+    </div>
+  )
 }
 
 export default Index;

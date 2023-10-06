@@ -11,8 +11,8 @@ const Team = (props: TeamProps) => {
         backgroundColor: color
       }}>{team}</div>
 
-      <div className="flex gap-6 p-6 grid grid-cols-4 place-items-stretch">
-        {members.map(member => <TeamMember key={member.id} member={member} />)}
+      <div className={`flex gap-6 p-6 grid place-items-stretch ${members.length && "grid-cols-4"}`}>
+        {members.length ? members.map(member => <TeamMember key={member.id} member={member} />) : <span>Não foi configurado nenhum <b>{team}</b> ate o momento!</span>}
       </div>
     </div>
   )
