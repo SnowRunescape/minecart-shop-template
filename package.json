@@ -21,7 +21,9 @@
     "react-lazy-load-image-component": "^1.6.0",
     "react-loading-skeleton": "^3.3.1",
     "react-router-dom": "^6.16.0",
-    "sass": "^1.68.0"
+    "sass": "^1.68.0",
+    "sweetalert2": "^11.7.32",
+    "sweetalert2-react-content": "^5.0.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

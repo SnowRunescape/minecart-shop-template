@@ -1,13 +1,30 @@
 import React from 'react'
 import { ProductProps } from './types';
 import { minecart } from 'minecart-sdk';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content'
+import ModalProductDetails from '../ModalProductDetails';
+import ModalProductAdded from '../ModalProductAdded';
+import { useNavigate } from 'react-router-dom';
 
 const Product = (props: ProductProps) => {
+  const navigate = useNavigate();
   const { product } = props;
 
-  const addProduct = (id: number) => {
-    alert("Produto adicionado ao carrinho de compra");
-    minecart.cart.addProduct(id);
+  const openDetails = () => {
+    withReactContent(Swal).fire({
+      showConfirmButton: false,
+      html: <ModalProductDetails product={product} />,
+    });
+  }
+
+  const AddProduct = () => {
+    minecart.cart.addProduct(product.id);
+
+    withReactContent(Swal).fire({
+      showConfirmButton: false,
+      html: <ModalProductAdded product={product} navigate={navigate} />,
+    });
   }
 
   return (
@@ -33,8 +50,8 @@ const Product = (props: ProductProps) => {
         </div>
 
         <div className="flex flex-col">
-          <button className="btn bg-gray-800">Detalhes</button>
-          <button className="btn btn-success" onClick={() => addProduct(product.id)}>Adicionar ao Carrinho</button>
+          <button className="btn bg-gray-800" onClick={openDetails}>Detalhes</button>
+          <button className="btn btn-success" onClick={AddProduct}>Adicionar ao Carrinho</button>
         </div>
       </div>
     </div>
