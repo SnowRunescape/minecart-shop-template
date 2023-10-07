@@ -1,9 +1,24 @@
 import { minecart } from 'minecart-sdk';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import Card from '../../components/Card';
+import { getBodyByUsername } from '../../helpers/minecraft';
 
 const Cart = () => {
+  const [items, setItems] = useState(minecart.cart.getCart().items);
+
+  const username = minecart.cart.getCart().username || "";
+
+  const handleRemoveProduct = (productId: number) => {
+    minecart.cart.removeProduct(productId);
+    setItems(minecart.cart.getCart().items);
+  };
+
+  const handleAmountChange = (productId: number, event) => {
+    minecart.cart.updateAmountProduct(productId, event.target.value);
+    setItems(minecart.cart.getCart().items);
+  }
+
   if (!minecart.cart.getCart().username?.length) {
     window.location.pathname = "/cart/profile"
     return null;
@@ -16,16 +31,40 @@ const Cart = () => {
   return (
     <div className="flex flex-col gap-3">
       <div className="border">
-        Cart {JSON.stringify(minecart.cart.getCart().items)}
+        <table className="table">
+          <thead>
+            <tr>
+              <td>#</td>
+              <td>Produto</td>
+              <td>Quantidade</td>
+              <td>Valor</td>
+              <td></td>
+            </tr>
+          </thead>
+
+          <tbody>
+            {items.map((item, index) => {
+              return (
+                <tr key={item.id}>
+                  <td>{index + 1}</td>
+                  <td>Produto</td>
+                  <td><input type="number" value={item.amount} onChange={event => handleAmountChange(item.id, event)} /></td>
+                  <td>R$ 20,00</td>
+                  <td><a onClick={() => handleRemoveProduct(item.id)}>remover</a></td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
 
       <div className="flex justify-between gap-3">
         <Card title="Dados do comprador">
           <div className="flex gap-3">
-            <img src={`https://minotar.net/body/${minecart.cart.getCart().username}/80`} />
+            <img src={getBodyByUsername(username)} />
 
             <div className="flex flex-col gap-3">
-              <input type="text" value={minecart.cart.getCart().username || ""}/>
+              <input type="text" value={username} disabled />
 
               <Link to="/cart/profile" className="bg-gray-100 text-center">Alterar Dados</Link>
 
