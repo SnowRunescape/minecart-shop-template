@@ -1,8 +1,11 @@
 import { minecart } from 'minecart-sdk';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
+import useDocumentTitle from '../../../hooks/useDocumentTitle';
 
 const CartProfile = () => {
+  useDocumentTitle("Carrinho");
+
   const [username, setUsername] = useState('');
 
   const navigate = useNavigate();

@@ -3,8 +3,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import Card from '../../components/Card';
 import { getBodyByUsername } from '../../helpers/minecraft';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const Cart = () => {
+  useDocumentTitle("Carrinho");
+
   const [items, setItems] = useState(minecart.cart.getCart().items);
 
   const username = minecart.cart.getCart().username || "";
