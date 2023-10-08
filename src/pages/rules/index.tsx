@@ -2,8 +2,11 @@ import React from 'react';
 import NotFound from '../../components/NotFound';
 import RuleComponent from '../../components/Rule';
 import { useGetRules } from '../../services/rules';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const Rules = () => {
+  useDocumentTitle("Regras");
+
   const {data: rules, isLoading} = useGetRules();
 
   if (isLoading) {

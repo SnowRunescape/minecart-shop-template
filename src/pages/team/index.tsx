@@ -2,8 +2,11 @@ import React from 'react';
 import NotFound from '../../components/NotFound';
 import { useGetTeam } from '../../services/team';
 import TeamComponent from '../../components/Team';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const Team = () => {
+  useDocumentTitle("Equipe");
+
   const { data: team, isLoading } = useGetTeam();
 
   if (isLoading) {

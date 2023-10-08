@@ -2,8 +2,11 @@ import React from 'react';
 import NotFound from '../../components/NotFound';
 import News from '../../components/News';
 import { useGetNews } from '../../services/news';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const Index = () => {
+  useDocumentTitle("Pagina Inicial");
+
   const { data: news, isLoading } = useGetNews();
 
   if (isLoading) {
