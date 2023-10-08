@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
 import ReactQueryProvider from './providers/react-query';
+import { StoreProvider } from './providers/Store';
 
 const Providers = (props: {
   children: ReactNode
@@ -8,7 +9,9 @@ const Providers = (props: {
 
   return (
     <ReactQueryProvider>
-      {children}
+      <StoreProvider>
+        {children}
+      </StoreProvider>
     </ReactQueryProvider>
   )
 }
