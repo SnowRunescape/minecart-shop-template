@@ -1,4 +1,3 @@
-import React from 'react';
 import NotFound from '../../components/NotFound';
 import News from '../../components/News';
 import { useGetNews } from '../../services/news';

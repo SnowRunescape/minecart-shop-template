@@ -1,4 +1,3 @@
-import React from 'react'
 import { NewsProps } from './types';
 import Card from './../Card'
 import { getHelmByUsername } from '../../helpers/minecraft';

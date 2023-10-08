@@ -1,4 +1,3 @@
-import React from 'react'
 import { NotFoundProps } from './types';
 
 const NotFound = (props: NotFoundProps) => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import NotFound from '../../components/NotFound';
 import RuleComponent from '../../components/Rule';
 import { useGetRules } from '../../services/rules';

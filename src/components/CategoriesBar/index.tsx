@@ -1,4 +1,3 @@
-import React from 'react'
 import { CategoriesBarProps } from './types';
 import { useTranslation } from 'react-i18next';
 

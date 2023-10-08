@@ -1,4 +1,3 @@
-import React from 'react';
 import ProductComponent from '../../components/product';
 import CategoriesBar from '../../components/CategoriesBar';
 import { useGetProducts } from '../../services/products';

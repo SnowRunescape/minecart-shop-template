@@ -1,4 +1,3 @@
-import React from 'react'
 import { ProductProps } from './types';
 import { minecart } from 'minecart-sdk';
 import Swal from 'sweetalert2';

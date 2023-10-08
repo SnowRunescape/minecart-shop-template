@@ -1,4 +1,3 @@
-import React from 'react'
 import { ModalProductAddedProps } from "./types";
 import Swal from 'sweetalert2';
 

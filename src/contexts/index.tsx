@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import ReactQueryProvider from './providers/react-query';
 import { StoreProvider } from './providers/Store';
 

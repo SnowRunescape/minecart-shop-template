@@ -1,4 +1,3 @@
-import React from 'react'
 import { TeamProps } from './types';
 import TeamMember from '../TeamMember';
 

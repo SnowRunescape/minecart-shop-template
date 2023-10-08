@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export const queryClient = new QueryClient({

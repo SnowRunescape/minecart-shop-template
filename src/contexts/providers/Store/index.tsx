@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode } from 'react'
+import { createContext, ReactNode } from 'react'
 import { useGetStore } from '../../../services/store';
 import { Store } from 'minecart-sdk';
 

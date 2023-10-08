@@ -1,4 +1,3 @@
-import React from 'react'
 import { TeamMemberProps } from './types';
 import { getHelmByUsername } from '../../helpers/minecraft';
 import Img from '../Img';
