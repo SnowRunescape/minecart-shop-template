@@ -1,10 +1,10 @@
 import React from 'react';
 import NotFound from '../../components/NotFound';
 import News from '../../components/News';
-import { useGetRules } from '../../services/news';
+import { useGetNews } from '../../services/news';
 
 const Index = () => {
-  const { data: news, isLoading } = useGetRules();
+  const { data: news, isLoading } = useGetNews();
 
   if (isLoading) {
     return "carregando";
