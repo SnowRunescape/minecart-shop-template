@@ -29,7 +29,6 @@ const Shop = () => {
     <div className="flex gap-3">
       {!!categories.length && <CategoriesBar categories={categories} />}
 
-
       <Card>
         <div className="grid grid-cols-2 w-full gap-4">
           {products.map(product => <ProductComponent key={product.id} product={product} />)}
