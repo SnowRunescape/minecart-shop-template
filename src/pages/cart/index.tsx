@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import Card from '../../components/Card';
 import { getBodyByUsername } from '../../helpers/minecraft';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
+import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
+import ModalPaymentsGateways from '../../components/ModalPaymentsGateways';
 
 const Cart = () => {
   useDocumentTitle("Carrinho");
@@ -17,7 +20,7 @@ const Cart = () => {
     setItems(minecart.cart.getCart().items);
   };
 
-  const handleAmountChange = (productId: number, event) => {
+  const handleAmountChange = (productId: number, event: any) => {
     minecart.cart.updateAmountProduct(productId, event.target.value);
     setItems(minecart.cart.getCart().items);
   }
@@ -29,6 +32,13 @@ const Cart = () => {
 
   if (!minecart.cart.getCart().items.length) {
     return "cart vazio";
+  }
+
+  const selectPaymentGateway = () => {
+    withReactContent(Swal).fire({
+      showConfirmButton: false,
+      html: <ModalPaymentsGateways />,
+    });
   }
 
   return (
@@ -99,7 +109,7 @@ const Cart = () => {
             <p>Desconto obtido</p>
             <p>Total a pagar</p>
 
-            <button className="btn btn-success uppercase w-full">Confirmar pagamento</button>
+            <button className="btn btn-success uppercase w-full" onClick={selectPaymentGateway}>Confirmar pagamento</button>
 
             <div>
               Ao efetuar o pagamento, você concorda com nossos <Link to="#" className="link">termos de uso</Link> e com a nossa <Link to="#" className="link">política de reembolso</Link>.
