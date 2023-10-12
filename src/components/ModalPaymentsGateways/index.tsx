@@ -20,8 +20,14 @@ const ModalPaymentsGateways = () => {
 
       <p>Para continuar, escolha o método de pagamento abaixo:</p>
 
-      <div>
-        {gateways.map(gateway => <>teste</>)}
+      <div className="flex justify-center flex-wrap gap-3">
+        {gateways.map(gateway => <>
+          <div className="flex bg-gray-100 rounded p-3">
+            <img className="cursor-pointer" src={`https://cdn.minecart.com.br/assets/img/payments/${gateway.toLowerCase()}.png`} style={{
+              height: 30
+            }} />
+          </div>
+        </>)}
       </div>
 
       <hr className="my-2" />
