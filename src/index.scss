@@ -9,6 +9,10 @@ input {
   @apply py-1;
 }
 
+.bg-primary {
+  background: var(--color1);
+}
+
 .table {
   width: 100%;
 

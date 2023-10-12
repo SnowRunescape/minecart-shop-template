@@ -14,9 +14,18 @@ export const StoreProvider = (props: {
     return "Carregando..";
   }
 
+
+  const rootStyles  = {
+    '--color0': store?.customization.colors['--color0'],
+    '--color1': store?.customization.colors['--color1'],
+    '--color2': store?.customization.colors['--color2'],
+  }
+
   return (
     <StoreContext.Provider value={store}>
-      {children}
+      <div style={rootStyles as React.CSSProperties}>
+        {children}
+      </div>
     </StoreContext.Provider>
   );
 }
