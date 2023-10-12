@@ -7,6 +7,8 @@ import useDocumentTitle from '../../hooks/useDocumentTitle';
 import withReactContent from 'sweetalert2-react-content';
 import Swal from 'sweetalert2';
 import ModalPaymentsGateways from '../../components/ModalPaymentsGateways';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { queryClient } from '../../contexts/providers/react-query';
 
 const Cart = () => {
   useDocumentTitle("Carrinho");
@@ -37,7 +39,9 @@ const Cart = () => {
   const selectPaymentGateway = () => {
     withReactContent(Swal).fire({
       showConfirmButton: false,
-      html: <ModalPaymentsGateways />,
+      html: <QueryClientProvider client={queryClient}>
+        <ModalPaymentsGateways />
+      </QueryClientProvider>,
     });
   }
 
