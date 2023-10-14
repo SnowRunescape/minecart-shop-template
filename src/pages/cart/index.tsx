@@ -75,7 +75,7 @@ const Cart = () => {
         </table>
       </div>
 
-      <div className="flex justify-between gap-3">
+      <div className="flex justify-between items-start gap-3">
         <Card title="Dados do comprador">
           <div className="flex gap-3">
             <img src={getBodyByUsername(username)} />
