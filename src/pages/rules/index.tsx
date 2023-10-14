@@ -2,6 +2,7 @@ import NotFound from '../../components/NotFound';
 import RuleComponent from '../../components/Rule';
 import { useGetRules } from '../../services/rules';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
+import Card from '../../components/Card';
 
 const Rules = () => {
   useDocumentTitle("Regras");
@@ -21,7 +22,11 @@ const Rules = () => {
     )
   }
 
-  return rules.map(rule => <RuleComponent key={rule.id} rule={rule} />);
+  return (
+    <Card>
+      {rules.map(rule => <RuleComponent key={rule.id} rule={rule} />)}
+    </Card>
+  );
 }
 
 export default Rules;
