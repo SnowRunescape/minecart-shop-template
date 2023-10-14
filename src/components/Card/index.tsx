@@ -8,7 +8,7 @@ const Card = (props: CardProps) => {
   } = props;
 
   return (
-    <div className="w-full border">
+    <div className="w-full bg-white border">
       {title && (
         <h2 className={`border-b p-3 ${backgroundTitle}`}>
           {title}

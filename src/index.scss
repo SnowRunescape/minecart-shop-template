@@ -9,6 +9,10 @@ input {
   @apply py-1;
 }
 
+.bg-background {
+  background-color: var(--color0);
+}
+
 .bg-primary {
   background: var(--color1);
 }
