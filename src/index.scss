@@ -37,6 +37,11 @@ input {
 
   padding: 4px 12px;
 
+  &.btn-primary {
+    background-color: var(--color1);
+    @apply text-white;
+  }
+
   &.btn-success {
     @apply bg-green-600;
     @apply text-white;
@@ -48,6 +53,6 @@ input {
   }
 }
 
-.link {
+a[href] {
   @apply text-cyan-400;
 }

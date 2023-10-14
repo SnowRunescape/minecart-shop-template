@@ -48,7 +48,7 @@ const Cart = () => {
   return (
     <div className="flex flex-col gap-3">
       <div className="border">
-        <table className="table">
+        <table className="table bg-white">
           <thead>
             <tr>
               <td>#</td>
@@ -83,7 +83,7 @@ const Cart = () => {
             <div className="flex flex-col gap-3">
               <input type="text" value={username} disabled />
 
-              <Link to="/cart/profile" className="bg-gray-100 text-center">Alterar Dados</Link>
+              <Link to="/cart/profile" className="btn btn-primary text-center">Alterar Dados</Link>
 
               <p>Os produtos serão entregues APENAS para o jogador informado acima.</p>
 
@@ -116,7 +116,7 @@ const Cart = () => {
             <button className="btn btn-success uppercase w-full" onClick={selectPaymentGateway}>Confirmar pagamento</button>
 
             <div>
-              Ao efetuar o pagamento, você concorda com nossos <Link to="#" className="link">termos de uso</Link> e com a nossa <Link to="#" className="link">política de reembolso</Link>.
+              Ao efetuar o pagamento, você concorda com nossos <Link to="#">termos de uso</Link> e com a nossa <Link to="#">política de reembolso</Link>.
             </div>
           </Card>
         </div>

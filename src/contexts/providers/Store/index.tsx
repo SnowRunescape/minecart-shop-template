@@ -23,7 +23,7 @@ export const StoreProvider = (props: {
 
   return (
     <StoreContext.Provider value={store}>
-      <div className="bg-background" style={rootStyles as React.CSSProperties}>
+      <div className="min-h-screen bg-background" style={rootStyles as React.CSSProperties}>
         {children}
       </div>
     </StoreContext.Provider>
