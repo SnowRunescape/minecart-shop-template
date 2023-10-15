@@ -1,5 +1,4 @@
 import { NewsProps } from './types';
-import Card from './../Card'
 import { getHelmByUsername } from '../../helpers/minecraft';
 import Img from '../Img';
 
@@ -7,8 +6,8 @@ const News = (props: NewsProps) => {
   const { posted_by, title, news, archive_url } = props.news;
 
   return (
-    <Card>
-      <div className="flex gap-2 items-center pb-3">
+    <div className="w-full bg-white border rounded">
+      <div className="flex gap-2 items-center p-3">
         <Img className="rounded" src={getHelmByUsername(posted_by)} />
 
         <div>
@@ -17,16 +16,17 @@ const News = (props: NewsProps) => {
         </div>
       </div>
 
-      <div className="p-5 bg-cover bg-center" style={{
-        backgroundColor: 'red',
+      <div className="p-5 bg-cover text-white text-2xl bg-center" style={{
+        backgroundColor: 'var(--color1)',
         minHeight: 140,
         backgroundImage: `url('${archive_url}')`,
+        textShadow: '2px 2px 3px #000',
       }}>
         {title}
       </div>
 
-      <div dangerouslySetInnerHTML={{__html: news}} />
-    </Card>
+      <div className="p-3" dangerouslySetInnerHTML={{__html: news}} />
+    </div>
   );
 }
 
