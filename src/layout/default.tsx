@@ -1,6 +1,7 @@
 import useMenu from './../hooks/useMenu';
 import Menu from './../components/Menu';
 import { Outlet } from 'react-router-dom';
+import SideBar from './../components/SideBar';
 
 const Default = () => {
   const menu = useMenu();
@@ -11,8 +12,14 @@ const Default = () => {
           {menu.map(menu => <Menu key={menu.name} menu={menu} />)}
         </header>
 
-        <div className="container">
-          <Outlet />
+        <div className="flex justify-between container gap-3">
+          <div className="w-full">
+            <Outlet />
+          </div>
+
+          <SideBar
+            style={{ width: 460 }}
+          />
         </div>
 
         <footer className="text-center">
