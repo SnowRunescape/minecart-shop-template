@@ -24,7 +24,9 @@ const Rules = () => {
 
   return (
     <Card>
-      {rules.map(rule => <RuleComponent key={rule.id} rule={rule} />)}
+      <div className="flex flex-col gap-3">
+        {rules.map(rule => <RuleComponent key={rule.id} rule={rule} />)}
+      </div>
     </Card>
   );
 }

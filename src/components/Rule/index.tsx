@@ -10,10 +10,12 @@ const Product = (props: RuleProps) => {
   const [state, setState] = useState(false);
 
   return (
-    <div className="flex flex-col items-center relative gap-3">
-      <div className="font-bold">{rule}</div>
+    <div className="flex flex-col items-center gap-2">
+      <div className="flex flex-col items-center">
+        <h2 className="font-bold">{rule}</h2>
 
-      <div>{description}</div>
+        <div>{description}</div>
+      </div>
 
       <button className="btn btn-danger" onClick={() => setState(!state)}>{t("words.punishment")}</button>
 
