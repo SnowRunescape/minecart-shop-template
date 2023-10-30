@@ -1,6 +1,7 @@
 import { NewsProps } from './types';
 import { getHelmByUsername } from '../../helpers/minecraft';
 import Img from '../Img';
+import RichText from './../../components/RichText';
 
 const News = (props: NewsProps) => {
   const { posted_by, title, news, archive_url } = props.news;
@@ -25,7 +26,7 @@ const News = (props: NewsProps) => {
         {title}
       </div>
 
-      <div className="p-3" dangerouslySetInnerHTML={{__html: news}} />
+      <RichText className="p-3" html={news} />
     </div>
   );
 }

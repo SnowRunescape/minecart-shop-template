@@ -1,0 +1,17 @@
+.rich_text img {
+  display: initial;
+}
+
+.rich_text table {
+  border-collapse: collapse;
+  width: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.rich_text table td {
+  border: 1px solid #bfbfbf;
+  min-width: 2em;
+  padding: .4em
+}
