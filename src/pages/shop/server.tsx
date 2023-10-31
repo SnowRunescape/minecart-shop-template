@@ -13,6 +13,12 @@ const Server = () => {
     return "carregando";
   }
 
+  if (servers?.length == 1) {
+    const server = servers[0];
+
+    window.location.pathname = `/shop/${server.id}`;
+  }
+
   if (!servers?.length) {
     return (
       <NotFound
