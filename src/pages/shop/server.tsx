@@ -3,6 +3,7 @@ import NotFound from '../../components/NotFound';
 import ServerComponent from '../../components/server';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { useGetServers } from './../../services/servers';
+import { Navigate } from 'react-router-dom';
 
 const Server = () => {
   useDocumentTitle("Loja");
@@ -16,7 +17,7 @@ const Server = () => {
   if (servers?.length == 1) {
     const server = servers[0];
 
-    window.location.pathname = `/shop/${server.id}`;
+    return <Navigate to={`/shop/${server.id}`}/>
   }
 
   if (!servers?.length) {

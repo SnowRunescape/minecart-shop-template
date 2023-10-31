@@ -1,6 +1,6 @@
 import { minecart } from 'minecart-sdk';
 import { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import Card from '../../components/Card';
 import { getBodyByUsername } from '../../helpers/minecraft';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
@@ -28,8 +28,7 @@ const Cart = () => {
   }
 
   if (!minecart.cart.getCart().username?.length) {
-    window.location.pathname = "/cart/profile"
-    return null;
+    return <Navigate to="/cart/profile" />
   }
 
   if (!minecart.cart.getCart().items.length) {
