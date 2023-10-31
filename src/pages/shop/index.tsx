@@ -5,7 +5,7 @@ import NotFound from '../../components/NotFound';
 import Card from '../../components/Card'
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
-const Shop = () => {
+const Servers = () => {
   useDocumentTitle("Loja");
 
   const { data: products, isLoading } = useGetProducts();
@@ -38,4 +38,4 @@ const Shop = () => {
   );
 }
 
-export default Shop;
+export default Servers;
