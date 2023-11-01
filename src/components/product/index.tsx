@@ -28,7 +28,7 @@ const Product = (props: ProductProps) => {
 
   return (
     <div className="relative bg-gray-100 rounded">
-      <span className="absolute bg-green-400 p-1 text-white rounded-bl-lg top-0 right-0 rounded-tr">R$ 20,00</span>
+      <span className="absolute bg-green-400 p-1 text-white rounded-bl-lg top-0 right-0 rounded-tr">R$ {product.value}</span>
 
       <div>
         <div className="text-center mx-auto mt-5 width-[60%]" style={{
