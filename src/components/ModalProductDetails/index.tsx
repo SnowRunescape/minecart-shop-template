@@ -1,3 +1,4 @@
+import RichText from "../../components/RichText";
 import { ModalProductDetailsProps } from "./types";
 import Swal from 'sweetalert2';
 
@@ -10,7 +11,7 @@ const ModalProductDetails = (props: ModalProductDetailsProps) => {
 
       <hr className="my-2" />
 
-      <div dangerouslySetInnerHTML={{__html: product.description}} />
+      <RichText html={product.description} />
 
       <hr className="my-2" />
 
