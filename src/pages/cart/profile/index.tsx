@@ -2,9 +2,11 @@ import { minecart } from 'minecart-sdk';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
+import useSideBar from '../../../hooks/useSideBar';
 
 const CartProfile = () => {
   useDocumentTitle("Carrinho");
+  useSideBar(false);
 
   const [username, setUsername] = useState('');
 

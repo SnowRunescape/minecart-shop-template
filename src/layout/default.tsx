@@ -1,10 +1,20 @@
 import useMenu from './../hooks/useMenu';
 import Menu from './../components/Menu';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import SideBar from './../components/SideBar';
+import { SideBarContext } from '../contexts/providers/SideBar';
+import { useContext, useLayoutEffect } from 'react';
 
 const Default = () => {
   const menu = useMenu();
+
+  const {isSideBarVisible, setIsSideBarVisible} = useContext(SideBarContext);
+
+  const location = useLocation();
+
+  useLayoutEffect(() => {
+    setIsSideBarVisible(true);
+  }, [location]);
 
   return (
       <div className="flex flex-col gap-10">
@@ -17,9 +27,9 @@ const Default = () => {
             <Outlet />
           </div>
 
-          <SideBar
+          {isSideBarVisible && <SideBar
             style={{ width: 460 }}
-          />
+          />}
         </div>
 
         <footer className="text-center">

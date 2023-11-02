@@ -9,9 +9,11 @@ import Swal from 'sweetalert2';
 import ModalPaymentsGateways from '../../components/ModalPaymentsGateways';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '../../contexts/providers/react-query';
+import useSideBar from '../../hooks/useSideBar';
 
 const Cart = () => {
   useDocumentTitle("Carrinho");
+  useSideBar(false);
 
   const [items, setItems] = useState(minecart.cart.getCart().items);
 

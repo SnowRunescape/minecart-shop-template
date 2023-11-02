@@ -14,7 +14,6 @@ export const StoreProvider = (props: {
     return "Carregando..";
   }
 
-
   const rootStyles  = {
     '--color0': store?.customization.colors['--color0'],
     '--color1': store?.customization.colors['--color1'],
