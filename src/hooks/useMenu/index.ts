@@ -1,8 +1,7 @@
-import { StoreContext } from "./../../contexts/providers/Store";
-import { useContext } from "react";
+import { useStore } from "./../../contexts/providers/Store";
 
 const useMenu = () => {
-  const store = useContext(StoreContext);
+  const store = useStore();
 
   const menu = [
     {

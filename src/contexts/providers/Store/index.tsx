@@ -1,8 +1,8 @@
-import { createContext, ReactNode } from 'react'
+import { createContext, ReactNode, useContext } from 'react'
 import { useGetStore } from '../../../services/store';
 import { Store } from 'minecart-sdk';
 
-export const StoreContext = createContext<Store | undefined>(undefined);
+const StoreContext = createContext<Store | undefined>(undefined);
 
 export const StoreProvider = (props: {
   children: ReactNode
@@ -28,3 +28,5 @@ export const StoreProvider = (props: {
     </StoreContext.Provider>
   );
 }
+
+export const useStore = () => useContext(StoreContext)

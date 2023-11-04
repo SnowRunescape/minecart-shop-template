@@ -1,8 +1,8 @@
-import { useContext, useEffect } from 'react';
-import { StoreContext } from '../../contexts/providers/Store';
+import { useEffect } from 'react';
+import { useStore } from '../../contexts/providers/Store';
 
 const useDocumentTitle = (title: string) => {
-  const store = useContext(StoreContext);
+  const store = useStore();
 
   useEffect(() => {
     document.title = `${store?.name} | ${title}`;
