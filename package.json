@@ -16,7 +16,7 @@
     "i18next-browser-languagedetector": "^7.1.0",
     "minecart-sdk": "^1.8.0",
     "react": "^18.2.0",
-    "react-discord-widget": "^1.0.9",
+    "react-discord-widget": "^1.0.21",
     "react-dom": "^18.2.0",
     "react-i18next": "^13.2.2",
     "react-lazy-load-image-component": "^1.6.0",
