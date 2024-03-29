@@ -4,15 +4,15 @@ import Img from '../Img';
 import RichText from './../../components/RichText';
 
 const News = (props: NewsProps) => {
-  const { posted_by, title, news, archive_url } = props.news;
+  const { username, title, news, archive_url } = props.news;
 
   return (
     <div className="w-full bg-white border rounded">
       <div className="flex gap-2 items-center p-3">
-        <Img className="rounded" src={getHelmByUsername(posted_by)} />
+        <Img className="rounded" src={getHelmByUsername(username)} />
 
         <div>
-          <div>Postado por <b>{posted_by}</b></div>
+          <div>Postado por <b>{username}</b></div>
           <small><b>12-08-2023 20:56:55</b></small>
         </div>
       </div>

@@ -12,7 +12,7 @@ const SideBar = (props: SideBarProps) => {
 
       <Card>Twitter</Card>
 
-      <Discord id={store?.widgets.discord.id} />
+      <Discord id={`${store?.widgets.discord.id}`} />
     </div>
   )
 }
