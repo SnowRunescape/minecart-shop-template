@@ -1,5 +1,5 @@
-import { ModalProductAddedProps } from "./types";
 import Swal from 'sweetalert2';
+import { ModalProductAddedProps } from "./types";
 
 const ModalProductAdded = (props: ModalProductAddedProps) => {
   const { product, navigate } = props;
@@ -11,7 +11,7 @@ const ModalProductAdded = (props: ModalProductAddedProps) => {
 
   return (
     <div className="flex flex-col items-center gap-3">
-      <img src={product.archive_url} style={{maxWidth: 180}}/>
+      <img src={product.archive.url} style={{ maxWidth: 180 }} />
 
       <span>O Produto foi adicionado ao seu carrinho de compras!</span>
 

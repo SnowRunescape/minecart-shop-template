@@ -6,27 +6,27 @@ const useMenu = () => {
   const menu = [
     {
       name: "Inicio",
-      image: store?.customization.menu.home.image || "",
+      image: store?.customization.menu.home.archive.url,
       url: "/",
     },
     {
       name: "Loja",
-      image: store?.customization.menu.shop.image || "",
+      image: store?.customization.menu.shop.archive.url,
       url: "/shop",
     },
     {
       name: "Regras",
-      image: store?.customization.menu.rules.image || "",
+      image: store?.customization.menu.rules.archive.url,
       url: "/rules",
     },
     {
       name: "Equipe",
-      image: store?.customization.menu.team.image || "",
+      image: store?.customization.menu.team.archive.url,
       url: "/team",
     }
-  ]
+  ];
 
-  return menu
+  return menu;
 }
 
 export default useMenu;

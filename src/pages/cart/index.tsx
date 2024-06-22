@@ -1,14 +1,14 @@
+import { QueryClientProvider } from '@tanstack/react-query';
 import { minecart } from 'minecart-sdk';
 import { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import Card from '../../components/Card';
+import ModalPaymentsGateways from '../../components/ModalPaymentsGateways';
+import { queryClient } from '../../contexts/providers/react-query';
 import { getBodyByUsername } from '../../helpers/minecraft';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
-import withReactContent from 'sweetalert2-react-content';
-import Swal from 'sweetalert2';
-import ModalPaymentsGateways from '../../components/ModalPaymentsGateways';
-import { QueryClientProvider } from '@tanstack/react-query';
-import { queryClient } from '../../contexts/providers/react-query';
 import useSideBar from '../../hooks/useSideBar';
 
 const Cart = () => {

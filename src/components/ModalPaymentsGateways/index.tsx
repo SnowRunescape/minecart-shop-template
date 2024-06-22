@@ -1,8 +1,8 @@
-import { useGetGateways } from "./../../services/gateways";
 import Swal from "sweetalert2";
+import { useGetGateways } from "./../../services/gateways";
 
 const ModalPaymentsGateways = () => {
-  const { data: gateways, isLoading} = useGetGateways();
+  const { data: gateways, isLoading } = useGetGateways();
 
   if (isLoading) {
     return "Carregando meios de pagamento..."

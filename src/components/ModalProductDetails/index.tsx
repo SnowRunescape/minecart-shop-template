@@ -1,6 +1,6 @@
+import Swal from 'sweetalert2';
 import RichText from "../../components/RichText";
 import { ModalProductDetailsProps } from "./types";
-import Swal from 'sweetalert2';
 
 const ModalProductDetails = (props: ModalProductDetailsProps) => {
   const { product } = props;

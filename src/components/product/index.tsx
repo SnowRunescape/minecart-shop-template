@@ -1,11 +1,11 @@
-import { ProductProps } from './types';
 import { minecart } from 'minecart-sdk';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content'
-import ModalProductDetails from '../ModalProductDetails';
-import ModalProductAdded from '../ModalProductAdded';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import { moneyFormat } from '../../helpers/utils';
+import ModalProductAdded from '../ModalProductAdded';
+import ModalProductDetails from '../ModalProductDetails';
+import { ProductProps } from './types';
 
 const Product = (props: ProductProps) => {
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ const Product = (props: ProductProps) => {
           maxHeight: '189.75px',
         }}>
           <img
-            src={product.archive_url}
+            src={product.archive.url}
             className="relative max-h-full inline top-2/4 translate-y-[-50%]"
           />
         </div>

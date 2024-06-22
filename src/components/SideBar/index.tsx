@@ -1,7 +1,7 @@
-import Card from "./../Card"
-import { SideBarProps } from "./types"
 import { Discord } from "react-discord-widget";
 import { useStore } from "./../../contexts/providers/Store";
+import Card from "./../Card";
+import { SideBarProps } from "./types";
 
 const SideBar = (props: SideBarProps) => {
   const store = useStore();

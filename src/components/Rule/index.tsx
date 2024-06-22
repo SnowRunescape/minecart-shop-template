@@ -1,10 +1,10 @@
-import { useState, useRef } from 'react'
-import { RuleProps } from './types';
+import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   CSSTransition,
 } from 'react-transition-group';
 import './index.css';
+import { RuleProps } from './types';
 
 const Product = (props: RuleProps) => {
   const { t } = useTranslation();

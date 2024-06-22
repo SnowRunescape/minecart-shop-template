@@ -1,9 +1,9 @@
-import ProductComponent from '../../components/product';
+import Card from '../../components/Card';
 import CategoriesBar from '../../components/CategoriesBar';
-import { useGetProducts } from '../../services/products';
 import NotFound from '../../components/NotFound';
-import Card from '../../components/Card'
+import ProductComponent from '../../components/product';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
+import { useGetProducts } from '../../services/products';
 
 const Servers = () => {
   useDocumentTitle("Loja");
