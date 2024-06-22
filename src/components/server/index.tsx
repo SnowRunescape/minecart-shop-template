@@ -1,5 +1,5 @@
-import { ServerProps } from './types';
 import { Link } from 'react-router-dom';
+import { ServerProps } from './types';
 
 const Server = (props: ServerProps) => {
   const { server } = props;
@@ -13,7 +13,7 @@ const Server = (props: ServerProps) => {
           maxHeight: '189.75px',
         }}>
           <img
-            src={server.archive_url}
+            src={server.archive.url}
             className="relative max-h-full inline top-2/4 translate-y-[-50%]"
           />
         </div>
