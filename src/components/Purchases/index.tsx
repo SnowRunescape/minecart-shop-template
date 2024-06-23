@@ -1,7 +1,7 @@
-import { useStore } from "../../contexts/providers/Store";
-import Card from '../Card';
-import Img from "./../../components/Img";
-import { getHelmByUsername } from "./../../helpers/minecraft";
+import Card from '@Minecart/components/Card';
+import Img from "@Minecart/components/Img";
+import { useStore } from "@Minecart/contexts/providers/Store";
+import { getHelmByUsername } from "@Minecart/helpers/minecraft";
 
 const Purchases = () => {
   const store = useStore();

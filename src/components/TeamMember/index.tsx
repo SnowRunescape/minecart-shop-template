@@ -1,6 +1,6 @@
+import Img from '@Minecart/components/Img';
+import { getHelmByUsername } from '@Minecart/helpers/minecraft';
 import { TeamMemberProps } from './types';
-import { getHelmByUsername } from '../../helpers/minecraft';
-import Img from '../Img';
 
 const TeamMember = (props: TeamMemberProps) => {
   const { name } = props.member;

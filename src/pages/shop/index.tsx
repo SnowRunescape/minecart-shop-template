@@ -1,9 +1,9 @@
-import Card from '../../components/Card';
-import CategoriesBar from '../../components/CategoriesBar';
-import NotFound from '../../components/NotFound';
-import ProductComponent from '../../components/product';
-import useDocumentTitle from '../../hooks/useDocumentTitle';
-import { useGetProducts } from '../../services/products';
+import Card from '@Minecart/components/Card';
+import CategoriesBar from '@Minecart/components/CategoriesBar';
+import NotFound from '@Minecart/components/NotFound';
+import ProductComponent from '@Minecart/components/product';
+import useDocumentTitle from '@Minecart/hooks/useDocumentTitle';
+import { useGetProducts } from '@Minecart/services/products';
 
 const Servers = () => {
   useDocumentTitle("Loja");

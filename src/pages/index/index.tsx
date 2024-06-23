@@ -1,9 +1,9 @@
-import NotFound from '../../components/NotFound';
-import News from '../../components/News';
-import { useGetNews } from '../../services/news';
-import useDocumentTitle from '../../hooks/useDocumentTitle';
-import usePagination from '../../hooks/usePagination';
-import Pagination from '../../components/Pagination';
+import News from '@Minecart/components/News';
+import NotFound from '@Minecart/components/NotFound';
+import Pagination from '@Minecart/components/Pagination';
+import useDocumentTitle from '@Minecart/hooks/useDocumentTitle';
+import usePagination from '@Minecart/hooks/usePagination';
+import { useGetNews } from '@Minecart/services/news';
 
 const Index = () => {
   useDocumentTitle("Pagina Inicial");

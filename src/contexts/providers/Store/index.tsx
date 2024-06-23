@@ -1,6 +1,6 @@
-import { createContext, ReactNode, useContext } from 'react'
-import { useGetStore } from '../../../services/store';
+import { useGetStore } from '@Minecart/services/store';
 import { Store } from 'minecart-sdk';
+import { createContext, ReactNode, useContext } from 'react';
 
 const StoreContext = createContext<Store | undefined>(undefined);
 
@@ -14,7 +14,7 @@ export const StoreProvider = (props: {
     return "Carregando..";
   }
 
-  const rootStyles  = {
+  const rootStyles = {
     '--color0': store?.customization.colors['--color0'],
     '--color1': store?.customization.colors['--color1'],
     '--color2': store?.customization.colors['--color2'],

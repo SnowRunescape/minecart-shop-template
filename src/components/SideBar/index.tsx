@@ -1,7 +1,7 @@
+import Card from "@Minecart/components/Card";
+import Purchases from "@Minecart/components/Purchases";
+import { useStore } from "@Minecart/contexts/providers/Store";
 import { Discord } from "react-discord-widget";
-import Purchases from "../Purchases";
-import { useStore } from "./../../contexts/providers/Store";
-import Card from "./../Card";
 import { SideBarProps } from "./types";
 
 const SideBar = (props: SideBarProps) => {

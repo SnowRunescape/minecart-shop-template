@@ -1,4 +1,4 @@
-import { useStore } from "./../../contexts/providers/Store";
+import { useStore } from "@Minecart/contexts/providers/Store";
 
 const useMenu = () => {
   const store = useStore();

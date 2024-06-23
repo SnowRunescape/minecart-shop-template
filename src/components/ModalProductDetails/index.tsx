@@ -1,5 +1,5 @@
+import RichText from "@Minecart/components/RichText";
 import Swal from 'sweetalert2';
-import RichText from "../../components/RichText";
 import { ModalProductDetailsProps } from "./types";
 
 const ModalProductDetails = (props: ModalProductDetailsProps) => {

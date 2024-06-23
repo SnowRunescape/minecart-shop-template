@@ -1,5 +1,5 @@
+import TeamMember from '@Minecart/components/TeamMember';
 import { TeamProps } from './types';
-import TeamMember from '../TeamMember';
 
 const Team = (props: TeamProps) => {
   const { team, color, members } = props.team;

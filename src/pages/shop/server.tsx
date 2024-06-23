@@ -1,8 +1,8 @@
-import Card from '../../components/Card';
-import NotFound from '../../components/NotFound';
-import ServerComponent from '../../components/server';
-import useDocumentTitle from '../../hooks/useDocumentTitle';
-import { useGetServers } from './../../services/servers';
+import Card from '@Minecart/components/Card';
+import NotFound from '@Minecart/components/NotFound';
+import ServerComponent from '@Minecart/components/server';
+import useDocumentTitle from '@Minecart/hooks/useDocumentTitle';
+import { useGetServers } from '@Minecart/services/servers';
 import { Navigate } from 'react-router-dom';
 
 const Server = () => {
@@ -17,7 +17,7 @@ const Server = () => {
   if (servers?.length == 1) {
     const server = servers[0];
 
-    return <Navigate to={`/shop/${server.id}`}/>
+    return <Navigate to={`/shop/${server.id}`} />
   }
 
   if (!servers?.length) {

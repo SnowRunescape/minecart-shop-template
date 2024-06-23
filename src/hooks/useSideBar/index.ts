@@ -1,8 +1,8 @@
+import { SideBarContext } from '@Minecart/contexts/providers/SideBar';
 import { useContext, useEffect } from 'react';
-import { SideBarContext } from '../../contexts/providers/SideBar';
 
 const useSideBar = (visible: boolean) => {
-  const {setIsSideBarVisible} = useContext(SideBarContext);
+  const { setIsSideBarVisible } = useContext(SideBarContext);
 
   useEffect(() => {
     setIsSideBarVisible(visible);

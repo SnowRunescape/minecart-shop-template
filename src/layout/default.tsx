@@ -1,9 +1,9 @@
+import Menu from '@Minecart/components/Menu';
+import SideBar from '@Minecart/components/SideBar';
+import { SideBarContext } from '@Minecart/contexts/providers/SideBar';
+import useMenu from '@Minecart/hooks/useMenu';
 import { useContext, useLayoutEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { SideBarContext } from '../contexts/providers/SideBar';
-import Menu from './../components/Menu';
-import SideBar from './../components/SideBar';
-import useMenu from './../hooks/useMenu';
 
 const Default = () => {
   const menu = useMenu();

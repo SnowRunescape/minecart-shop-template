@@ -1,15 +1,15 @@
+import Card from '@Minecart/components/Card';
+import ModalPaymentsGateways from '@Minecart/components/ModalPaymentsGateways';
+import { queryClient } from '@Minecart/contexts/providers/react-query';
+import { getBodyByUsername } from '@Minecart/helpers/minecraft';
+import useDocumentTitle from '@Minecart/hooks/useDocumentTitle';
+import useSideBar from '@Minecart/hooks/useSideBar';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { minecart } from 'minecart-sdk';
 import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import Card from '../../components/Card';
-import ModalPaymentsGateways from '../../components/ModalPaymentsGateways';
-import { queryClient } from '../../contexts/providers/react-query';
-import { getBodyByUsername } from '../../helpers/minecraft';
-import useDocumentTitle from '../../hooks/useDocumentTitle';
-import useSideBar from '../../hooks/useSideBar';
 
 const Cart = () => {
   useDocumentTitle("Carrinho");

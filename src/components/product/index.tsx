@@ -1,10 +1,10 @@
+import ModalProductAdded from '@Minecart/components/ModalProductAdded';
+import ModalProductDetails from '@Minecart/components/ModalProductDetails';
+import { moneyFormat } from '@Minecart/helpers/utils';
 import { minecart } from 'minecart-sdk';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import { moneyFormat } from '../../helpers/utils';
-import ModalProductAdded from '../ModalProductAdded';
-import ModalProductDetails from '../ModalProductDetails';
 import { ProductProps } from './types';
 
 const Product = (props: ProductProps) => {

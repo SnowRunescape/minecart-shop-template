@@ -1,5 +1,5 @@
+import { useGetGateways } from "@Minecart/services/gateways";
 import Swal from "sweetalert2";
-import { useGetGateways } from "./../../services/gateways";
 
 const ModalPaymentsGateways = () => {
   const { data: gateways, isLoading } = useGetGateways();

@@ -1,5 +1,5 @@
+import { useStore } from '@Minecart/contexts/providers/Store';
 import { useEffect } from 'react';
-import { useStore } from '../../contexts/providers/Store';
 
 const useDocumentTitle = (title: string) => {
   const store = useStore();

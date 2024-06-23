@@ -1,6 +1,6 @@
-import { getHelmByUsername } from '../../helpers/minecraft';
-import Img from '../Img';
-import RichText from './../../components/RichText';
+import Img from '@Minecart/components/Img';
+import RichText from '@Minecart/components/RichText';
+import { getHelmByUsername } from '@Minecart/helpers/minecraft';
 import { NewsProps } from './types';
 
 const News = (props: NewsProps) => {

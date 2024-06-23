@@ -1,13 +1,13 @@
-import NotFound from '../../components/NotFound';
-import RuleComponent from '../../components/Rule';
-import { useGetRules } from '../../services/rules';
-import useDocumentTitle from '../../hooks/useDocumentTitle';
-import Card from '../../components/Card';
+import Card from '@Minecart/components/Card';
+import NotFound from '@Minecart/components/NotFound';
+import RuleComponent from '@Minecart/components/Rule';
+import useDocumentTitle from '@Minecart/hooks/useDocumentTitle';
+import { useGetRules } from '@Minecart/services/rules';
 
 const Rules = () => {
   useDocumentTitle("Regras");
 
-  const {data: rules, isLoading} = useGetRules();
+  const { data: rules, isLoading } = useGetRules();
 
   if (isLoading) {
     return "carregando";
