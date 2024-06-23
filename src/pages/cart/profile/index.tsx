@@ -36,7 +36,7 @@ const CartProfile = () => {
           maxLength={16}
           defaultValue={username}
         />
-        <button type="submit" className="bg-green-400 py-2 px-3 rounded-r">Continuar</button>
+        <button type="submit" className="bg-success py-2 px-3 rounded-r">Continuar</button>
       </form>
     </div>
   );
