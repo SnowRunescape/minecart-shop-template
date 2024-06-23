@@ -1,21 +1,23 @@
 import useDocumentTitle from '@Minecart/hooks/useDocumentTitle';
 import useSideBar from '@Minecart/hooks/useSideBar';
-import { minecart } from 'minecart-sdk';
-import { useState } from 'react';
+import { t } from 'i18next';
+import { FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useLocalStorageState from 'use-local-storage-state';
 
 const CartProfile = () => {
   useDocumentTitle("Carrinho");
   useSideBar(false);
 
-  const [username, setUsername] = useState(minecart.cart.getCart().username || "");
+  const [username, setUsername] = useLocalStorageState("minecart-store-username", {
+    defaultValue: "",
+  });
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    minecart.cart.setUsername(username);
     navigate("/cart");
   }
 
@@ -36,7 +38,8 @@ const CartProfile = () => {
           maxLength={16}
           defaultValue={username}
         />
-        <button type="submit" className="bg-success py-2 px-3 rounded-r">Continuar</button>
+
+        <button type="submit" className="bg-success py-2 px-3 rounded-r">{t("words.continue")}</button>
       </form>
     </div>
   );

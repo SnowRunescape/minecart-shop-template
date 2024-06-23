@@ -12,6 +12,7 @@
   "dependencies": {
     "@tanstack/react-query": "^4.35.7",
     "axios": "^1.5.1",
+    "cart-ts": "^1.1.1",
     "i18next": "^23.5.1",
     "i18next-browser-languagedetector": "^7.1.0",
     "minecart-sdk": "^2.0.1",
@@ -25,7 +26,8 @@
     "react-transition-group": "^4.4.5",
     "sass": "^1.68.0",
     "sweetalert2": "^11.7.32",
-    "sweetalert2-react-content": "^5.0.7"
+    "sweetalert2-react-content": "^5.0.7",
+    "use-local-storage-state": "^19.3.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

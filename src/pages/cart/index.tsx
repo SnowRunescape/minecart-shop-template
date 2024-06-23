@@ -2,38 +2,43 @@ import Card from '@Minecart/components/Card';
 import ModalPaymentsGateways from '@Minecart/components/ModalPaymentsGateways';
 import { queryClient } from '@Minecart/contexts/providers/react-query';
 import { getBodyByUsername } from '@Minecart/helpers/minecraft';
+import { moneyFormat } from '@Minecart/helpers/utils';
 import useDocumentTitle from '@Minecart/hooks/useDocumentTitle';
 import useSideBar from '@Minecart/hooks/useSideBar';
 import { QueryClientProvider } from '@tanstack/react-query';
-import { minecart } from 'minecart-sdk';
+import { cart } from 'cart-ts';
+import { t } from 'i18next';
 import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import useLocalStorageState from 'use-local-storage-state';
 
 const Cart = () => {
   useDocumentTitle("Carrinho");
   useSideBar(false);
 
-  const [items, setItems] = useState(minecart.cart.getCart().items);
+  const [items, setItems] = useState(cart.list());
 
-  const username = minecart.cart.getCart().username || "";
+  const [username] = useLocalStorageState("minecart-store-username", {
+    defaultValue: "",
+  });
 
-  const handleRemoveProduct = (productId: number) => {
-    minecart.cart.removeProduct(productId);
-    setItems(minecart.cart.getCart().items);
+  const handleRemoveProduct = (productId: number | string) => {
+    cart.remove(productId);
+    setItems(cart.list());
   };
 
-  const handleAmountChange = (productId: number, event: any) => {
-    minecart.cart.updateAmountProduct(productId, event.target.value);
-    setItems(minecart.cart.getCart().items);
+  const handleAmountChange = (productId: number | string, event: any) => {
+    cart.updateQuantity(productId, event.target.value);
+    setItems(cart.list());
   }
 
-  if (!minecart.cart.getCart().username?.length) {
+  if (!username.length) {
     return <Navigate to="/cart/profile" />
   }
 
-  if (!minecart.cart.getCart().items.length) {
+  if (!items.length) {
     return "cart vazio";
   }
 
@@ -53,9 +58,9 @@ const Cart = () => {
           <thead>
             <tr>
               <td>#</td>
-              <td>Produto</td>
-              <td>Quantidade</td>
-              <td>Valor</td>
+              <td>{t("words.product")}</td>
+              <td>{t("words.quantity")}</td>
+              <td>{t("words.value")}</td>
               <td></td>
             </tr>
           </thead>
@@ -65,10 +70,25 @@ const Cart = () => {
               return (
                 <tr key={item.id}>
                   <td>{index + 1}</td>
-                  <td>Produto</td>
-                  <td><input type="number" value={item.amount} onChange={event => handleAmountChange(item.id, event)} /></td>
-                  <td>R$ 20,00</td>
-                  <td><a onClick={() => handleRemoveProduct(item.id)}>remover</a></td>
+                  <td>
+                    <div className="flex gap-2 items-center">
+                      <img src={item.archive.url} className="w-[32px]" />
+
+                      <div className="flex flex-col text-left">
+                        <span className="font-bold">{item.name}</span>
+                        <small className="text-gray-500">ServerName</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td><input type="number" value={item.quantity} onChange={event => handleAmountChange(item.id, event)} /></td>
+                  <td>R$ {moneyFormat(item.price)}</td>
+                  <td>
+                    <img
+                      src="https://cdn.minecart.com.br/assets/img/icons/icon-delete.svg"
+                      className="w-[22px]"
+                      onClick={() => handleRemoveProduct(item.id)}
+                    />
+                  </td>
                 </tr>
               );
             })}
@@ -104,20 +124,32 @@ const Cart = () => {
               <input type="text" placeholder="Cupom de desconto" />
 
               <div className="flex justify-end">
-                <button type="submit" className="btn btn-success uppercase">Aplicar</button>
+                <button type="submit" className="btn btn-success uppercase">{t("words.apply")}</button>
               </div>
             </div>
           </Card>
 
           <Card title="Resumo da compra">
-            <p>Subtotal</p>
-            <p>Desconto obtido</p>
-            <p>Total a pagar</p>
+            <div className="flex flex-col gap-3">
+              <div>
+                <div className="flex justify-between">
+                  <span>Subtotal</span>
+                  <span>{moneyFormat(cart.total())}</span>
+                </div>
 
-            <button className="btn btn-success uppercase w-full" onClick={selectPaymentGateway}>Confirmar pagamento</button>
+                <p>Desconto obtido</p>
 
-            <div>
-              Ao efetuar o pagamento, você concorda com nossos <Link to="#">termos de uso</Link> e com a nossa <Link to="#">política de reembolso</Link>.
+                <div className="flex justify-between">
+                  <span>Total a pagar</span>
+                  <span className="font-bold">{moneyFormat(cart.total())}</span>
+                </div>
+              </div>
+
+              <button className="btn btn-success uppercase w-full" onClick={selectPaymentGateway}>Confirmar pagamento</button>
+
+              <div className="text-center">
+                Ao efetuar o pagamento, você concorda com nossos <Link to="#">termos de uso</Link> e com a nossa <Link to="#">política de reembolso</Link>.
+              </div>
             </div>
           </Card>
         </div>
