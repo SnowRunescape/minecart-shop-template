@@ -4,19 +4,23 @@ import NotFound from '@Minecart/components/NotFound';
 import ProductComponent from '@Minecart/components/product';
 import useDocumentTitle from '@Minecart/hooks/useDocumentTitle';
 import { useGetProducts } from '@Minecart/services/products';
+import { useParams } from 'react-router-dom';
 
 const Servers = () => {
   useDocumentTitle("Loja");
 
   const { data: products, isLoading } = useGetProducts();
+  const { server } = useParams();
 
-  const categories = [];
+  const categories: any = [];
 
   if (isLoading) {
     return "carregando";
   }
 
-  if (!products?.length) {
+  const productsFiltered = products?.filter(product => product.shop_server == server)
+
+  if (!productsFiltered?.length) {
     return (
       <NotFound
         title="Nenhum produto publicada"
@@ -31,7 +35,7 @@ const Servers = () => {
 
       <Card>
         <div className="grid grid-cols-2 w-full gap-4">
-          {products.map(product => <ProductComponent key={product.id} product={product} />)}
+          {productsFiltered.map(product => <ProductComponent key={product.id} product={product} />)}
         </div>
       </Card>
     </div>
