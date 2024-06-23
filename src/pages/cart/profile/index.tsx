@@ -8,7 +8,7 @@ const CartProfile = () => {
   useDocumentTitle("Carrinho");
   useSideBar(false);
 
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState(minecart.cart.getCart().username || "");
 
   const navigate = useNavigate();
 
@@ -34,6 +34,7 @@ const CartProfile = () => {
           placeholder="Exemplo: Steve"
           onChange={(e) => setUsername(e.target.value)}
           maxLength={16}
+          defaultValue={username}
         />
         <button type="submit" className="bg-green-400 py-2 px-3 rounded-r">Continuar</button>
       </form>
