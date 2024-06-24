@@ -1,6 +1,7 @@
 import Img from '@Minecart/components/Img';
 import RichText from '@Minecart/components/RichText';
 import { getHelmByUsername } from '@Minecart/helpers/minecraft';
+import { t } from 'i18next';
 import { NewsProps } from './types';
 
 const News = (props: NewsProps) => {
@@ -12,7 +13,7 @@ const News = (props: NewsProps) => {
         <Img className="rounded" src={getHelmByUsername(user.username)} />
 
         <div>
-          <div>Postado por <b>{user.username}</b></div>
+          <div>{t("phrases.postedBy")} <b>{user.username}</b></div>
           <small><b>12-08-2023 20:56:55</b></small>
         </div>
       </div>

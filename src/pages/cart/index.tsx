@@ -85,7 +85,7 @@ const Cart = () => {
                   <td>
                     <img
                       src="https://cdn.minecart.com.br/assets/img/icons/icon-delete.svg"
-                      className="w-[22px]"
+                      className="cursor-pointer w-[22px]"
                       onClick={() => handleRemoveProduct(item.id)}
                     />
                   </td>
@@ -117,11 +117,11 @@ const Cart = () => {
         </Card>
 
         <div className="max-w-[370px] flex flex-col gap-3">
-          <Card title="Cupom de desconto">
+          <Card title={t("phrases.discountCoupon")}>
             <div className="flex flex-col gap-3">
-              <label>Tem um cupom de desconto?</label>
+              <label>{t("phrases.hasDiscountCoupon")}</label>
 
-              <input type="text" placeholder="Cupom de desconto" />
+              <input type="text" placeholder={t("phrases.discountCoupon")} />
 
               <div className="flex justify-end">
                 <button type="submit" className="btn btn-success uppercase">{t("words.apply")}</button>

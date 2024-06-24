@@ -1,9 +1,11 @@
 import News from '@Minecart/components/News';
 import NotFound from '@Minecart/components/NotFound';
 import Pagination from '@Minecart/components/Pagination';
+import { NEWS_PER_PAGE } from '@Minecart/config';
 import useDocumentTitle from '@Minecart/hooks/useDocumentTitle';
 import usePagination from '@Minecart/hooks/usePagination';
 import { useGetNews } from '@Minecart/services/news';
+import { t } from 'i18next';
 
 const Index = () => {
   useDocumentTitle("Pagina Inicial");
@@ -11,7 +13,7 @@ const Index = () => {
   const { data: news, isLoading } = useGetNews();
   const { currentPageData, currentPage, itemsPerPage, updateCurrentPage } = usePagination({
     data: news || [],
-    itemsPerPage: 2,
+    itemsPerPage: NEWS_PER_PAGE,
   });
 
   if (isLoading) {
@@ -21,8 +23,8 @@ const Index = () => {
   if (!news?.length) {
     return (
       <NotFound
-        title="Nenhuma noticia publicada"
-        description="Não foi publicado nenhuma noticia ate o momento!"
+        title={t("phrases.newsTitleNotFound")}
+        description={t("phrases.newsDescriptionNotFound")}
       />
     )
   }

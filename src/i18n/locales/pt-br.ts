@@ -11,5 +11,13 @@ export default {
       details: "Detalhes",
       close: "Fechar",
     },
+    phrases: {
+      postedBy: "Postado por",
+      newsTitleNotFound: "Nenhuma noticia publicada",
+      newsDescriptionNotFound: "Não foi publicado nenhuma noticia ate o momento!",
+
+      discountCoupon: "Cupom de desconto",
+      hasDiscountCoupon: "Tem um cupom de desconto?",
+    },
   }
 }
