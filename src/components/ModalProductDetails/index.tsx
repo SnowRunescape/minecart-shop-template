@@ -1,4 +1,5 @@
 import RichText from "@Minecart/components/RichText";
+import { t } from "i18next";
 import Swal from 'sweetalert2';
 import { ModalProductDetailsProps } from "./types";
 
@@ -16,7 +17,7 @@ const ModalProductDetails = (props: ModalProductDetailsProps) => {
       <hr className="my-2" />
 
       <div className="text-right">
-        <button className="btn" onClick={() => Swal.close()}>Fechar</button>
+        <button className="btn" onClick={() => Swal.close()}>{t("words.close")}</button>
       </div>
     </div>
   );

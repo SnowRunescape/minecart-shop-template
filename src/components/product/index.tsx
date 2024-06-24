@@ -2,6 +2,7 @@ import ModalProductAdded from '@Minecart/components/ModalProductAdded';
 import ModalProductDetails from '@Minecart/components/ModalProductDetails';
 import { addCart } from '@Minecart/helpers/cart-ts';
 import { moneyFormat } from '@Minecart/helpers/utils';
+import { t } from 'i18next';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -50,7 +51,7 @@ const Product = (props: ProductProps) => {
         </div>
 
         <div className="flex flex-col">
-          <button className="btn bg-gray-800" onClick={openDetails}>Detalhes</button>
+          <button className="btn bg-gray-800" onClick={openDetails}>{t("words.details")}</button>
           <button className="btn btn-success" onClick={AddProduct}>Adicionar ao Carrinho</button>
         </div>
       </div>

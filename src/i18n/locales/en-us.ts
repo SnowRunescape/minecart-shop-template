@@ -8,6 +8,8 @@ export default {
       value: "Value",
       apply: "Apply",
       continue: "Continue",
+      details: "Details",
+      close: "Close",
     },
   }
 }

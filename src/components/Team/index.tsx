@@ -6,8 +6,9 @@ const Team = (props: TeamProps) => {
 
   return (
     <div className="bg-white border rounded">
-      <div className="text-center p-3 rounded-t" style={{
-        backgroundColor: color
+      <div className="text-center p-3 rounded-t text-white font-bold" style={{
+        backgroundColor: color,
+        textShadow: "2px 2px 3px #000"
       }}>{team}</div>
 
       <div className={`flex gap-6 p-6 grid place-items-stretch ${members.length && "grid-cols-4"}`}>
