@@ -116,7 +116,7 @@ const Cart = () => {
           </div>
         </Card>
 
-        <div className="flex flex-col gap-3">
+        <div className="max-w-[370px] flex flex-col gap-3">
           <Card title="Cupom de desconto">
             <div className="flex flex-col gap-3">
               <label>Tem um cupom de desconto?</label>
