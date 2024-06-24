@@ -49,6 +49,7 @@ input {
   @apply rounded;
 
   padding: 4px 12px;
+  transition: 0.4s;
 
   &.btn-primary {
     background-color: var(--color1);
@@ -58,6 +59,10 @@ input {
   &.btn-success {
     @apply bg-green-600;
     @apply text-white;
+
+    &:hover {
+      @apply bg-green-500;
+    }
   }
 
   &.btn-danger {
@@ -67,5 +72,5 @@ input {
 }
 
 a[href] {
-  @apply text-cyan-400;
+  color: #0878dd;
 }
