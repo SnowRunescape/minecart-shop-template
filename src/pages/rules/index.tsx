@@ -1,8 +1,8 @@
-import Card from '@Minecart/components/Card';
-import NotFound from '@Minecart/components/NotFound';
-import RuleComponent from '@Minecart/components/Rule';
-import useDocumentTitle from '@Minecart/hooks/useDocumentTitle';
-import { useGetRules } from '@Minecart/services/rules';
+import Card from "@Minecart/components/Card";
+import NotFound from "@Minecart/components/NotFound";
+import RuleComponent from "@Minecart/components/Rule";
+import useDocumentTitle from "@Minecart/hooks/useDocumentTitle";
+import { useGetRules } from "@Minecart/services/rules";
 
 const Rules = () => {
   useDocumentTitle("Regras");
@@ -19,16 +19,18 @@ const Rules = () => {
         title="Nenhuma regra publicada"
         description="Não foi publicado nenhuma regra ate o momento!"
       />
-    )
+    );
   }
 
   return (
     <Card>
       <div className="flex flex-col gap-3">
-        {rules.map(rule => <RuleComponent key={rule.id} rule={rule} />)}
+        {rules.map((rule) => (
+          <RuleComponent key={rule.id} rule={rule} />
+        ))}
       </div>
     </Card>
   );
-}
+};
 
 export default Rules;

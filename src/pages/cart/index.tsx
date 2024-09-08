@@ -1,18 +1,18 @@
-import Card from '@Minecart/components/Card';
-import ModalPaymentsGateways from '@Minecart/components/ModalPaymentsGateways';
-import { queryClient } from '@Minecart/contexts/providers/react-query';
-import { getBodyByUsername } from '@Minecart/helpers/minecraft';
-import { moneyFormat } from '@Minecart/helpers/utils';
-import useDocumentTitle from '@Minecart/hooks/useDocumentTitle';
-import useSideBar from '@Minecart/hooks/useSideBar';
-import { QueryClientProvider } from '@tanstack/react-query';
-import { cart } from 'cart-ts';
-import { t } from 'i18next';
-import { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
-import useLocalStorageState from 'use-local-storage-state';
+import Card from "@Minecart/components/Card";
+import ModalPaymentsGateways from "@Minecart/components/ModalPaymentsGateways";
+import { queryClient } from "@Minecart/contexts/providers/react-query";
+import { getBodyByUsername } from "@Minecart/helpers/minecraft";
+import { moneyFormat } from "@Minecart/helpers/utils";
+import useDocumentTitle from "@Minecart/hooks/useDocumentTitle";
+import useSideBar from "@Minecart/hooks/useSideBar";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { cart } from "cart-ts";
+import { t } from "i18next";
+import { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import useLocalStorageState from "use-local-storage-state";
 
 const Cart = () => {
   useDocumentTitle("Carrinho");
@@ -32,10 +32,10 @@ const Cart = () => {
   const handleAmountChange = (productId: number | string, event: any) => {
     cart.updateQuantity(productId, event.target.value);
     setItems(cart.list());
-  }
+  };
 
   if (!username.length) {
-    return <Navigate to="/cart/profile" />
+    return <Navigate to="/cart/profile" />;
   }
 
   if (!items.length) {
@@ -45,11 +45,13 @@ const Cart = () => {
   const selectPaymentGateway = () => {
     withReactContent(Swal).fire({
       showConfirmButton: false,
-      html: <QueryClientProvider client={queryClient}>
-        <ModalPaymentsGateways />
-      </QueryClientProvider>,
+      html: (
+        <QueryClientProvider client={queryClient}>
+          <ModalPaymentsGateways />
+        </QueryClientProvider>
+      ),
     });
-  }
+  };
 
   return (
     <div className="flex flex-col gap-3">
@@ -80,7 +82,13 @@ const Cart = () => {
                       </div>
                     </div>
                   </td>
-                  <td><input type="number" value={item.quantity} onChange={event => handleAmountChange(item.id, event)} /></td>
+                  <td>
+                    <input
+                      type="number"
+                      value={item.quantity}
+                      onChange={(event) => handleAmountChange(item.id, event)}
+                    />
+                  </td>
                   <td>R$ {moneyFormat(item.price)}</td>
                   <td>
                     <img
@@ -104,13 +112,20 @@ const Cart = () => {
             <div className="flex flex-col gap-3">
               <input type="text" value={username} disabled />
 
-              <Link to="/cart/profile" className="btn btn-primary text-center">Alterar Dados</Link>
+              <Link to="/cart/profile" className="btn btn-primary text-center">
+                Alterar Dados
+              </Link>
 
-              <p>Os produtos serão entregues APENAS para o jogador informado acima.</p>
+              <p>
+                Os produtos serão entregues APENAS para o jogador informado
+                acima.
+              </p>
 
               <small>
-                Pagamentos via <b>cartão de crédito</b>, ou <b>saldo em conta</b> em um dos serviços acima, geralmente são aprovados <b>imediatamente</b>.
-                Boletos podem demorar até <b>2 dias úteis</b>, após o pagamento, para serem aprovados.
+                Pagamentos via <b>cartão de crédito</b>, ou{" "}
+                <b>saldo em conta</b> em um dos serviços acima, geralmente são
+                aprovados <b>imediatamente</b>. Boletos podem demorar até{" "}
+                <b>2 dias úteis</b>, após o pagamento, para serem aprovados.
               </small>
             </div>
           </div>
@@ -124,7 +139,9 @@ const Cart = () => {
               <input type="text" placeholder={t("phrases.discountCoupon")} />
 
               <div className="flex justify-end">
-                <button type="submit" className="btn btn-success uppercase">{t("words.apply")}</button>
+                <button type="submit" className="btn btn-success uppercase">
+                  {t("words.apply")}
+                </button>
               </div>
             </div>
           </Card>
@@ -145,10 +162,17 @@ const Cart = () => {
                 </div>
               </div>
 
-              <button className="btn btn-success uppercase w-full" onClick={selectPaymentGateway}>Confirmar pagamento</button>
+              <button
+                className="btn btn-success uppercase w-full"
+                onClick={selectPaymentGateway}
+              >
+                Confirmar pagamento
+              </button>
 
               <div className="text-center">
-                Ao efetuar o pagamento, você concorda com nossos <Link to="#">termos de uso</Link> e com a nossa <Link to="#">política de reembolso</Link>.
+                Ao efetuar o pagamento, você concorda com nossos{" "}
+                <Link to="#">termos de uso</Link> e com a nossa{" "}
+                <Link to="#">política de reembolso</Link>.
               </div>
             </div>
           </Card>
@@ -156,6 +180,6 @@ const Cart = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Cart;

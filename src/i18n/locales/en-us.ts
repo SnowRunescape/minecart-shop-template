@@ -19,5 +19,5 @@ export default {
       discountCoupon: "Discount coupon",
       hasDiscountCoupon: "Do you have a discount coupon?",
     },
-  }
-}
+  },
+};

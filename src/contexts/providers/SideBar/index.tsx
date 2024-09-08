@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useState, Dispatch, SetStateAction } from 'react'
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useState,
+} from "react";
 
 type SideBarState = {
   isSideBarVisible: boolean;
@@ -7,9 +13,7 @@ type SideBarState = {
 
 export const SideBarContext = createContext<SideBarState>({} as SideBarState);
 
-export const SideBarProvider = (props: {
-  children: ReactNode
-}) => {
+export const SideBarProvider = (props: { children: ReactNode }) => {
   const { children } = props;
   const [isSideBarVisible, setIsSideBarVisible] = useState(true);
 
@@ -18,4 +22,4 @@ export const SideBarProvider = (props: {
       {children}
     </SideBarContext.Provider>
   );
-}
+};

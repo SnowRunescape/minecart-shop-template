@@ -1,9 +1,9 @@
-import Card from '@Minecart/components/Card';
-import NotFound from '@Minecart/components/NotFound';
-import ServerComponent from '@Minecart/components/server';
-import useDocumentTitle from '@Minecart/hooks/useDocumentTitle';
-import { useGetServers } from '@Minecart/services/servers';
-import { Navigate } from 'react-router-dom';
+import Card from "@Minecart/components/Card";
+import NotFound from "@Minecart/components/NotFound";
+import ServerComponent from "@Minecart/components/server";
+import useDocumentTitle from "@Minecart/hooks/useDocumentTitle";
+import { useGetServers } from "@Minecart/services/servers";
+import { Navigate } from "react-router-dom";
 
 const Server = () => {
   useDocumentTitle("Loja");
@@ -17,7 +17,7 @@ const Server = () => {
   if (servers?.length == 1) {
     const server = servers[0];
 
-    return <Navigate to={`/shop/${server.id}`} />
+    return <Navigate to={`/shop/${server.id}`} />;
   }
 
   if (!servers?.length) {
@@ -26,16 +26,18 @@ const Server = () => {
         title="Nenhum servidor publicada"
         description="Não foi publicado nenhum servidor ate o momento!"
       />
-    )
+    );
   }
 
   return (
     <Card>
       <div className="grid grid-cols-2 w-full gap-4">
-        {servers.map(server => <ServerComponent key={server.id} server={server} />)}
+        {servers.map((server) => (
+          <ServerComponent key={server.id} server={server} />
+        ))}
       </div>
     </Card>
   );
-}
+};
 
 export default Server;

@@ -23,10 +23,10 @@ const useMenu = () => {
       name: "Equipe",
       image: store?.customization.menu.team.archive.url,
       url: "/team",
-    }
+    },
   ];
 
   return menu;
-}
+};
 
 export default useMenu;
