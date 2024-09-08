@@ -7,7 +7,7 @@ import useSideBar from "@Minecart/hooks/useSideBar";
 import { useGetCategories } from "@Minecart/services/categories";
 import { useGetProducts } from "@Minecart/services/products";
 import { useMemo } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 const Servers = () => {
   useDocumentTitle("Loja");
@@ -16,24 +16,34 @@ const Servers = () => {
   const { data: categoriesData, isPending: isCategoriesPending } =
     useGetCategories();
   const { server } = useParams();
+  const [searchParams] = useSearchParams();
 
   const products = useMemo(() => {
     if (!productsData) {
       return [];
     }
 
-    return productsData?.filter((product) => product.shop_server == server);
-  }, [productsData]);
+    return productsData?.filter((product) => {
+      return (
+        product.shop_server == server &&
+        (!searchParams.get("category") ||
+          product.category == Number(searchParams.get("category")))
+      );
+    });
+  }, [searchParams, productsData]);
 
   const categories = useMemo(() => {
-    if (!categoriesData) {
+    if (!productsData || !categoriesData) {
       return [];
     }
 
     return categoriesData?.filter((category) => {
-      return products?.find((product) => product.category == category.id);
+      return productsData?.find(
+        (product) =>
+          product.shop_server == server && product.category == category.id
+      );
     });
-  }, [categoriesData]);
+  }, [productsData, categoriesData]);
 
   useSideBar(!categories?.length);
 
