@@ -1,8 +1,13 @@
-import { useQuery, UseQueryOptions } from "@tanstack/react-query"
+import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import { AxiosError } from "axios";
+import { minecart, Rule } from "minecart-sdk";
 import { getRules } from "./keys";
-import { Rule, minecart } from "minecart-sdk";
 
-export const useGetRules = (
-  options?: UseQueryOptions<Rule[], AxiosError>
-) => useQuery(getRules(), () => minecart.rules.all(), options);
+export const useGetRules = (options?: UseQueryOptions<Rule[], AxiosError>) =>
+  useQuery({
+    queryKey: getRules(),
+    queryFn: () => {
+      return minecart.rules.all();
+    },
+    ...options,
+  });

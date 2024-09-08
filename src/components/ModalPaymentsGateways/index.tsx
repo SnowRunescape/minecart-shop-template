@@ -17,15 +17,24 @@ const ModalPaymentsGateways = () => {
       amount: item.quantity,
     }));
 
-    const { url } = await minecart.payment.create({
-      gateway,
-      username,
-      items,
-    });
+    minecart.payment
+      .create({
+        gateway,
+        username,
+        items,
+      })
+      .then(({ url }) => {
+        cart.clean();
 
-    cart.clean();
-
-    window.location.href = url;
+        window.location.href = url;
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.response.data.message,
+        });
+      });
   };
 
   if (isLoading) {

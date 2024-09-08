@@ -1,8 +1,13 @@
-import { useQuery, UseQueryOptions } from "@tanstack/react-query"
+import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import { AxiosError } from "axios";
+import { minecart, Team } from "minecart-sdk";
 import { getTeam } from "./keys";
-import { Team, minecart } from "minecart-sdk";
 
-export const useGetTeam = (
-  options?: UseQueryOptions<Team[], AxiosError>
-) => useQuery(getTeam(), () => minecart.team.all(), options);
+export const useGetTeam = (options?: UseQueryOptions<Team[], AxiosError>) =>
+  useQuery({
+    queryKey: getTeam(),
+    queryFn: () => {
+      return minecart.team.all();
+    },
+    ...options,
+  });

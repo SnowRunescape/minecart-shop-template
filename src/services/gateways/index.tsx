@@ -1,8 +1,15 @@
-import { useQuery, UseQueryOptions } from "@tanstack/react-query"
+import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import { AxiosError } from "axios";
+import { Gateway, minecart } from "minecart-sdk";
 import { getGateways } from "./keys";
-import { minecart } from "minecart-sdk";
 
 export const useGetGateways = (
-  options?: UseQueryOptions<any[], AxiosError>
-) => useQuery(getGateways(), () => minecart.gateways.all(), options);
+  options?: UseQueryOptions<Gateway[], AxiosError>
+) =>
+  useQuery({
+    queryKey: getGateways(),
+    queryFn: () => {
+      return minecart.gateways.all();
+    },
+    ...options,
+  });

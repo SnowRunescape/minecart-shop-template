@@ -5,4 +5,11 @@ import { getProducts } from "./keys";
 
 export const useGetProducts = (
   options?: UseQueryOptions<Product[], AxiosError>
-) => useQuery(getProducts(), () => minecart.products.all(), options);
+) =>
+  useQuery({
+    queryKey: getProducts(),
+    queryFn: () => {
+      return minecart.products.all();
+    },
+    ...options,
+  });

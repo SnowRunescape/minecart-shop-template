@@ -1,8 +1,15 @@
-import { useQuery, UseQueryOptions } from "@tanstack/react-query"
+import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import { AxiosError } from "axios";
-import { getServers } from "./keys";
 import { minecart, Server } from "minecart-sdk";
+import { getServers } from "./keys";
 
 export const useGetServers = (
   options?: UseQueryOptions<Server[], AxiosError>
-) => useQuery(getServers(), () => minecart.servers.all(), options);
+) =>
+  useQuery({
+    queryKey: getServers(),
+    queryFn: () => {
+      return minecart.servers.all();
+    },
+    ...options,
+  });
