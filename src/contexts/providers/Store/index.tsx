@@ -1,3 +1,4 @@
+import { MINECART_PUBLIC_KEY } from "@Minecart/config";
 import { useGetStore } from "@Minecart/services/store";
 import { minecart, Store } from "minecart-sdk";
 import { createContext, ReactNode, useContext } from "react";
@@ -5,7 +6,7 @@ import { createContext, ReactNode, useContext } from "react";
 const StoreContext = createContext<Store | undefined>(undefined);
 
 export const StoreProvider = (props: { children: ReactNode }) => {
-  minecart.setApiKey("Minecart");
+  minecart.setApiKey(MINECART_PUBLIC_KEY);
 
   const { data: store, isLoading } = useGetStore();
   const { children } = props;
