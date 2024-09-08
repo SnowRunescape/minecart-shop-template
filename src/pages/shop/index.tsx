@@ -25,7 +25,7 @@ const Servers = () => {
 
     return productsData?.filter((product) => {
       return (
-        product.shop_server == server &&
+        product.shop_server == Number(server) &&
         (!searchParams.get("category") ||
           product.category == Number(searchParams.get("category")))
       );
@@ -40,7 +40,8 @@ const Servers = () => {
     return categoriesData?.filter((category) => {
       return productsData?.find(
         (product) =>
-          product.shop_server == server && product.category == category.id
+          product.shop_server == Number(server) &&
+          product.category == category.id
       );
     });
   }, [productsData, categoriesData]);
