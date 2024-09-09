@@ -171,8 +171,14 @@ const Cart = () => {
 
               <div className="text-center">
                 Ao efetuar o pagamento, você concorda com nossos{" "}
-                <Link to="#">termos de uso</Link> e com a nossa{" "}
-                <Link to="#">política de reembolso</Link>.
+                <Link to="#" className="text-link">
+                  termos de uso
+                </Link>{" "}
+                e com a nossa{" "}
+                <Link to="#" className="text-link">
+                  política de reembolso
+                </Link>
+                .
               </div>
             </div>
           </Card>
