@@ -15,7 +15,7 @@ const SideBar = (props: SideBarProps) => {
 
       <Discord id={`${store?.widgets.discord.id}`} />
     </div>
-  )
-}
+  );
+};
 
-export default SideBar
+export default SideBar;
