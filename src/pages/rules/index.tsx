@@ -1,4 +1,4 @@
-import Card from "@Minecart/components/Card";
+import { Card, CardContent } from "@Minecart/components/Card";
 import NotFound from "@Minecart/components/NotFound";
 import RuleComponent from "@Minecart/components/Rule";
 import useDocumentTitle from "@Minecart/hooks/useDocumentTitle";
@@ -24,11 +24,11 @@ const Rules = () => {
 
   return (
     <Card>
-      <div className="flex flex-col gap-3">
+      <CardContent className="flex flex-col gap-3">
         {rules.map((rule) => (
           <RuleComponent key={rule.id} rule={rule} />
         ))}
-      </div>
+      </CardContent>
     </Card>
   );
 };

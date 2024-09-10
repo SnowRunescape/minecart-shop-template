@@ -1,4 +1,4 @@
-import Card from "@Minecart/components/Card";
+import { Card, CardContent } from "@Minecart/components/Card";
 import CategoriesBar from "@Minecart/components/CategoriesBar";
 import NotFound from "@Minecart/components/NotFound";
 import ProductComponent from "@Minecart/components/product";
@@ -68,11 +68,11 @@ const Servers = () => {
       )}
 
       <Card>
-        <div className="grid grid-cols-2 w-full gap-4">
+        <CardContent className="grid grid-cols-2 w-full gap-4">
           {products.map((product) => (
             <ProductComponent key={product.id} product={product} />
           ))}
-        </div>
+        </CardContent>
       </Card>
     </div>
   );

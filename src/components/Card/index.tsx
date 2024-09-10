@@ -1,25 +1,35 @@
-import { CardProps } from './types';
+import { cn } from "@Minecart/lib/utils";
 
-const Card = (props: CardProps) => {
-  const {
-    title,
-    backgroundTitle = 'bg-gray-50',
-    children
-  } = props;
+export interface CardHeaderProps
+  extends React.ButtonHTMLAttributes<HTMLDivElement> {}
 
+const CardHeader = ({ className, children, ...props }: CardHeaderProps) => {
   return (
-    <div className="w-full bg-white border">
-      {title && (
-        <h2 className={`border-b p-3 ${backgroundTitle}`}>
-          {title}
-        </h2>
-      )}
+    <h2 className={cn("p-3 pb-0", className)} {...props}>
+      {children}
+    </h2>
+  );
+};
 
-      <div className="p-3">
-        {children}
-      </div>
+export interface CardContentProps
+  extends React.ButtonHTMLAttributes<HTMLDivElement> {}
+
+const CardContent = ({ className, children, ...props }: CardContentProps) => {
+  return (
+    <div className={cn("p-3", className)} {...props}>
+      {children}
     </div>
   );
-}
+};
 
-export default Card;
+export interface CardProps extends React.ButtonHTMLAttributes<HTMLDivElement> {}
+
+const Card = ({ className, children, ...props }: CardProps) => {
+  return (
+    <div className={cn("w-full bg-white border", className)} {...props}>
+      {children}
+    </div>
+  );
+};
+
+export { Card, CardContent, CardHeader };

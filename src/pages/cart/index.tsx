@@ -1,4 +1,4 @@
-import Card from "@Minecart/components/Card";
+import { Card, CardContent, CardHeader } from "@Minecart/components/Card";
 import ModalPaymentsGateways from "@Minecart/components/ModalPaymentsGateways";
 import { queryClient } from "@Minecart/contexts/providers/react-query";
 import { getBodyByUsername } from "@Minecart/helpers/minecraft";
@@ -105,8 +105,10 @@ const Cart = () => {
       </div>
 
       <div className="flex justify-between items-start gap-3">
-        <Card title="Dados do comprador">
-          <div className="flex gap-3">
+        <Card>
+          <CardHeader>Dados do comprador</CardHeader>
+
+          <CardContent className="flex gap-3">
             <img src={getBodyByUsername(username)} />
 
             <div className="flex flex-col gap-3">
@@ -128,12 +130,14 @@ const Cart = () => {
                 <b>2 dias úteis</b>, após o pagamento, para serem aprovados.
               </small>
             </div>
-          </div>
+          </CardContent>
         </Card>
 
         <div className="max-w-[370px] flex flex-col gap-3">
-          <Card title={t("phrases.discountCoupon")}>
-            <div className="flex flex-col gap-3">
+          <Card>
+            <CardHeader>{t("phrases.discountCoupon")}</CardHeader>
+
+            <CardContent className="flex flex-col gap-3">
               <label>{t("phrases.hasDiscountCoupon")}</label>
 
               <input type="text" placeholder={t("phrases.discountCoupon")} />
@@ -143,11 +147,13 @@ const Cart = () => {
                   {t("words.apply")}
                 </button>
               </div>
-            </div>
+            </CardContent>
           </Card>
 
-          <Card title="Resumo da compra">
-            <div className="flex flex-col gap-3">
+          <Card>
+            <CardHeader>Resumo da compra</CardHeader>
+
+            <CardContent className="flex flex-col gap-3">
               <div>
                 <div className="flex justify-between">
                   <span>Subtotal</span>
@@ -180,7 +186,7 @@ const Cart = () => {
                 </Link>
                 .
               </div>
-            </div>
+            </CardContent>
           </Card>
         </div>
       </div>

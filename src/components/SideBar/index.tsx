@@ -1,4 +1,4 @@
-import Card from "@Minecart/components/Card";
+import { Card } from "@Minecart/components/Card";
 import Purchases from "@Minecart/components/Purchases";
 import { useStore } from "@Minecart/contexts/providers/Store";
 import { Discord } from "react-discord-widget";
