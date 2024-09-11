@@ -17,6 +17,8 @@ export default {
       newsDescriptionNotFound:
         "Não foi publicado nenhuma noticia ate o momento!",
 
+      addToCard: "Adicionar ao Carrinho",
+
       discountCoupon: "Cupom de desconto",
       hasDiscountCoupon: "Tem um cupom de desconto?",
     },
