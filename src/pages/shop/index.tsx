@@ -27,7 +27,7 @@ const Servers = () => {
       return (
         product.shop_server == Number(server) &&
         (!searchParams.get("category") ||
-          product.category == Number(searchParams.get("category")))
+          product.categories.includes(Number(searchParams.get("category"))))
       );
     });
   }, [searchParams, productsData]);
@@ -41,7 +41,7 @@ const Servers = () => {
       return productsData?.find(
         (product) =>
           product.shop_server == Number(server) &&
-          product.category == category.id
+          product.categories.includes(category.id)
       );
     });
   }, [productsData, categoriesData]);
