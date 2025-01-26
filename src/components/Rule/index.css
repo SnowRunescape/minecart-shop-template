@@ -1,13 +1,16 @@
 .rule-node-enter {
   opacity: 0;
 }
+
 .rule-node-enter-active {
   opacity: 1;
   transition: opacity 500ms;
 }
+
 .rule-node-exit {
   opacity: 1;
 }
+
 .rule-node-exit-active {
   opacity: 0;
   transition: opacity 500ms;
