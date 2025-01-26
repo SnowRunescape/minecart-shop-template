@@ -23,7 +23,7 @@ const CategoriesBar = (props: CategoriesBarProps) => {
                 key={category.id}
                 className="flex items-center gap-2 bg-gray-400 rounded px-2 py-1 cursor-pointer"
               >
-                <img src="https://cdn.minecart.com.br/assets/img/cube-category.png" />
+                <img className="w-[32px] h-[32px]" src={category.archive.url} />
                 {category.name}
               </div>
             </Link>

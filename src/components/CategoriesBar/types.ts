@@ -1,8 +1,5 @@
-export type CategoriesBarProps = {
-  categories: Category[],
-}
+import { Category } from "minecart-sdk";
 
-export type Category = {
-  id: number,
-  name: string,
-}
+export type CategoriesBarProps = {
+  categories: Category[];
+};
