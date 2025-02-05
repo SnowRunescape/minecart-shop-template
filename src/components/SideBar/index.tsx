@@ -1,4 +1,5 @@
 import { Card } from "@Minecart/components/Card";
+import Goal from "@Minecart/components/Goal";
 import Purchases from "@Minecart/components/Purchases";
 import { useStore } from "@Minecart/contexts/providers/Store";
 import { Discord } from "react-discord-widget";
@@ -12,6 +13,8 @@ const SideBar = (props: SideBarProps) => {
       <Purchases />
 
       <Card>Twitter</Card>
+
+      <Goal />
 
       <Discord id={`${store?.widgets.discord.id}`} />
     </div>
