@@ -1,8 +1,21 @@
-# React + Vite
+# Minecart Shop Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um template para criação de lojas online white-label voltadas para servidores de Minecraft. Este projeto integra a [Minecart](https://minecart.com.br) para facilitar a criação de lojas dinâmicas, oferecendo um frontend moderno e responsivo para a gestão de produtos, categorias, carrinho e checkout.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Loja Personalizável:** Interface moderna e responsiva com opções de customização.
+- **Integração via API:** Conexão automática com a Minecart API para obtenção de produtos, categorias e afins.
+- **Checkout Integrado:** Fluxo de compra simples e eficaz, integrado a gateways de pagamento.
+- **Modularidade:** Componentes reutilizáveis que facilitam a manutenção e extensão do projeto.
+- **Suporte a Temas:** Personalize facilmente cores, fontes e estilos através de configurações do Tailwind.
+
+## Contribuição
+Contribuições são bem-vindas! Caso deseje colaborar com o projeto:
+
+- Abra uma issue para reportar bugs ou sugerir melhorias.
+- Envie pull requests com novas funcionalidades ou correções.
+- Mantenha a padronização do código e siga as melhores práticas de desenvolvimento.
+
+## Licença
+Distribuído sob a licença MIT. Consulte o arquivo [LICENSE](https://github.com/SnowRunescape/minecart-shop-template/blob/master/LICENSE) para mais detalhes.
