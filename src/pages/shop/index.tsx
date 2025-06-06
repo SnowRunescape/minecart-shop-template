@@ -25,7 +25,7 @@ const Servers = () => {
 
     return productsData?.filter((product) => {
       return (
-        product.shop_server == Number(server) &&
+        product.server_id == Number(server) &&
         (!searchParams.get("category") ||
           product.categories.includes(Number(searchParams.get("category"))))
       );
@@ -40,7 +40,7 @@ const Servers = () => {
     return categoriesData?.filter((category) => {
       return productsData?.find(
         (product) =>
-          product.shop_server == Number(server) &&
+          product.server_id == Number(server) &&
           product.categories.includes(category.id)
       );
     });
