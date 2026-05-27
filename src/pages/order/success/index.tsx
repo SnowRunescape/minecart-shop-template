@@ -7,7 +7,7 @@ const OrderSuccess = () => {
         PAGAMENTO APROVADO
       </CardHeader>
 
-      <CardContent>
+      <CardContent className="space-y-3 text-gray-600">
         <p>
           Ei, obrigado pela compra, gostaria de avisar que seu VIP já foi
           entregue IN-GAME!

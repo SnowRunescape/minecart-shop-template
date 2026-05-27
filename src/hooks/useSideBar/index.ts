@@ -6,7 +6,8 @@ const useSideBar = (visible: boolean) => {
 
   useLayoutEffect(() => {
     setIsSideBarVisible(visible);
-  });
+    return () => setIsSideBarVisible(true);
+  }, [setIsSideBarVisible, visible]);
 };
 
 export default useSideBar;

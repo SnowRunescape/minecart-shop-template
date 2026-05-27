@@ -62,18 +62,27 @@ const Servers = () => {
   }
 
   return (
-    <div className="flex gap-3">
-      {categories && categories?.length > 0 && (
-        <CategoriesBar categories={categories} />
-      )}
+    <div className="page-stack">
+      <div>
+        <h1 className="section-title">Produtos</h1>
+        <p className="mt-1 text-sm text-gray-500">
+          Navegue pelos itens disponiveis e adicione ao carrinho.
+        </p>
+      </div>
 
-      <Card>
-        <CardContent className="grid grid-cols-2 w-full gap-4">
-          {products.map((product) => (
-            <ProductComponent key={product.id} product={product} />
-          ))}
-        </CardContent>
-      </Card>
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-start">
+        {categories && categories?.length > 0 && (
+          <CategoriesBar categories={categories} />
+        )}
+
+        <Card>
+          <CardContent className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {products.map((product) => (
+              <ProductComponent key={product.id} product={product} />
+            ))}
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 };

@@ -10,10 +10,10 @@ const Goal = () => {
 
   return (
     <Card>
-      <CardHeader className="bg-primary pb-3">META DO MÊS</CardHeader>
+      <CardHeader className="rounded-t-lg bg-primary pb-5 text-white">META DO MÊS</CardHeader>
 
       <CardContent className="flex flex-col gap-3">
-        <div className="text-center">{store.widgets.goal.description}</div>
+        <div className="text-center text-sm text-gray-600">{store.widgets.goal.description}</div>
       </CardContent>
     </Card>
   );

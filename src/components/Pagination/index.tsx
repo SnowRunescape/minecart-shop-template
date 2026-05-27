@@ -12,11 +12,11 @@ const Pagination = (props: PaginationProps) => {
   };
 
   return (
-    <div className="flex gap-3">
+    <div className="flex flex-wrap justify-center gap-2">
       {getPageNumbers().map(page => (
         <button
           key={page}
-          className={`px-3 py-1 border-solid border-2 border-primary rounded ${(currentPage == page) ? "bg-primary" : ""}`}
+          className={`h-10 min-w-10 rounded-lg border border-primary px-3 text-sm font-bold transition ${(currentPage == page) ? "bg-primary text-white" : "bg-white text-gray-700 hover:bg-gray-50"}`}
           onClick={() => updateCurrentPage(page)}
         >
           {page}

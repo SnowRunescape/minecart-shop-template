@@ -23,13 +23,22 @@ const Rules = () => {
   }
 
   return (
-    <Card>
-      <CardContent className="flex flex-col gap-3">
-        {rules.map((rule) => (
-          <RuleComponent key={rule.id} rule={rule} />
-        ))}
-      </CardContent>
-    </Card>
+    <div className="page-stack">
+      <div>
+        <h1 className="section-title">Regras</h1>
+        <p className="mt-1 text-sm text-gray-500">
+          Consulte as regras e suas penalidades.
+        </p>
+      </div>
+
+      <Card>
+        <CardContent className="flex flex-col gap-4">
+          {rules.map((rule) => (
+            <RuleComponent key={rule.id} rule={rule} />
+          ))}
+        </CardContent>
+      </Card>
+    </div>
   );
 };
 

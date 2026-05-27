@@ -46,18 +46,21 @@ const ModalPaymentsGateways = () => {
   }
 
   return (
-    <div>
-      <h2 className="font-bold text-left text-black">QUASE FINALIZADO!</h2>
+    <div className="text-left">
+      <h2 className="text-lg font-bold text-black">QUASE FINALIZADO!</h2>
 
       <hr className="my-2" />
 
-      <p>Para continuar, escolha o método de pagamento abaixo:</p>
+      <p className="text-sm text-gray-600">
+        Para continuar, escolha o método de pagamento abaixo:
+      </p>
 
-      <div className="flex justify-center flex-wrap gap-3">
+      <div className="mt-4 flex flex-wrap justify-center gap-3">
         {gateways.map((gateway) => (
-          <div
+          <button
+            type="button"
             key={gateway}
-            className="flex bg-gray-100 rounded p-3 cursor-pointer"
+            className="flex rounded-lg border border-gray-200 bg-gray-50 p-3 transition hover:border-gray-400 hover:bg-white"
             onClick={() => checkout(gateway)}
           >
             <img
@@ -66,7 +69,7 @@ const ModalPaymentsGateways = () => {
                 height: 30,
               }}
             />
-          </div>
+          </button>
         ))}
       </div>
 

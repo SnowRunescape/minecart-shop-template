@@ -7,7 +7,7 @@ const OrderFailure = () => {
         PAGAMENTO RECUSADO
       </CardHeader>
 
-      <CardContent>
+      <CardContent className="space-y-3 text-gray-600">
         <p>Ei, seu pagamento foi recusado!</p>
         <p>Infelizmente seu pagamento não foi aprovado.</p>
         <p>Caso tenha alguma duvida, entre em contato com a administração.</p>

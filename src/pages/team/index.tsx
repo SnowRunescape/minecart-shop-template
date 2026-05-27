@@ -22,7 +22,14 @@ const Team = () => {
   }
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="page-stack">
+      <div>
+        <h1 className="section-title">Equipe</h1>
+        <p className="mt-1 text-sm text-gray-500">
+          Conheça os membros que cuidam da comunidade.
+        </p>
+      </div>
+
       {team.map((team) => (
         <TeamComponent key={team.id} team={team} />
       ))}

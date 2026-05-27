@@ -29,37 +29,25 @@ const Product = (props: ProductProps) => {
   };
 
   return (
-    <div className="relative bg-gray-100 rounded">
-      <span className="absolute bg-green-400 p-1 text-white rounded-bl-lg top-0 right-0 rounded-tr">
+    <div className="group relative flex min-h-full flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+      <span className="absolute right-3 top-3 z-10 rounded-full bg-emerald-500 px-3 py-1 text-sm font-bold text-white shadow-sm">
         R$ {moneyFormat(product.value)}
       </span>
 
-      <div>
-        <div
-          className="text-center mx-auto mt-5 width-[60%]"
-          style={{
-            maxWidth: "60%",
-            height: 300,
-            maxHeight: "189.75px",
-          }}
-        >
+      <div className="flex h-full flex-col">
+        <div className="grid aspect-[4/3] place-items-center bg-gray-50 p-8">
           <img
             src={product.archive.url}
-            className="relative max-h-full inline top-2/4 translate-y-[-50%]"
+            className="max-h-44 object-contain transition group-hover:scale-105"
           />
         </div>
 
-        <div
-          className="flex items-center justify-center text-xl"
-          style={{
-            height: 64,
-          }}
-        >
+        <div className="flex min-h-20 items-center justify-center px-4 text-center text-base font-bold text-gray-950 sm:text-lg">
           {product.name}
         </div>
 
-        <div className="flex flex-col">
-          <button className="btn bg-gray-800" onClick={openDetails}>
+        <div className="mt-auto grid grid-cols-1 gap-2 border-t border-gray-100 p-3 sm:grid-cols-2">
+          <button className="btn bg-gray-900 text-white hover:bg-gray-800" onClick={openDetails}>
             {t("words.details")}
           </button>
           <button className="btn btn-success" onClick={AddProduct}>

@@ -25,28 +25,29 @@ const CartProfile = () => {
   };
 
   return (
-    <div
-      className="flex flex-col gap-3 border rounded bg-white mx-auto p-3"
-      style={{
-        width: 600,
-      }}
-    >
-      <div className="bg-yellow-100 rounded p-2">
+    <div className="soft-panel mx-auto flex w-full max-w-2xl flex-col gap-5 p-6">
+      <div>
+        <h1 className="section-title">Dados do comprador</h1>
+        <p className="mt-1 text-sm text-gray-500">
+          Informe o nick que recebera os produtos no servidor.
+        </p>
+      </div>
+
+      <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">
         Ei amigo, informe seu nick corretamente, essa é a parte mais{" "}
         <b>IMPORTANTE</b> do processo!
       </div>
 
-      <form className="flex" onSubmit={handleSubmit}>
+      <form className="flex flex-col gap-3 sm:flex-row" onSubmit={handleSubmit}>
         <input
           type="text"
-          className="w-full border p-2 rounded-l"
           placeholder="Exemplo: Steve"
           onChange={(e) => setUsername(e.target.value)}
           maxLength={16}
           defaultValue={username}
         />
 
-        <button type="submit" className="bg-success py-2 px-3 rounded-r">
+        <button type="submit" className="btn btn-success shrink-0">
           {t("words.continue")}
         </button>
       </form>

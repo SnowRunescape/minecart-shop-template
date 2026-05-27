@@ -30,13 +30,22 @@ const Server = () => {
   }
 
   return (
-    <Card>
-      <CardContent className="grid grid-cols-2 w-full gap-4">
-        {servers.map((server) => (
-          <ServerComponent key={server.id} server={server} />
-        ))}
-      </CardContent>
-    </Card>
+    <div className="page-stack">
+      <div>
+        <h1 className="section-title">Escolha um servidor</h1>
+        <p className="mt-1 text-sm text-gray-500">
+          Selecione onde deseja receber seus produtos.
+        </p>
+      </div>
+
+      <Card>
+        <CardContent className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          {servers.map((server) => (
+            <ServerComponent key={server.id} server={server} />
+          ))}
+        </CardContent>
+      </Card>
+    </div>
   );
 };
 

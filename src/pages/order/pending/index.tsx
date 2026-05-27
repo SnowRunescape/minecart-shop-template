@@ -3,11 +3,11 @@ import { Card, CardContent, CardHeader } from "@Minecart/components/Card";
 const OrderPending = () => {
   return (
     <Card>
-      <CardHeader className="text-2xl font-bold text-yellow-300">
+      <CardHeader className="text-2xl font-bold text-amber-500">
         PAGAMENTO PENDENTE
       </CardHeader>
 
-      <CardContent className="text-gray-500">
+      <CardContent className="space-y-3 text-gray-600">
         <p>Ei, o pagamento de sua compra está pendente!</p>
         <p>
           Se você comprou com cartão de crédito/débito ou com saldo disponivel

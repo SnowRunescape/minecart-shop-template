@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader } from "@Minecart/components/Card";
 import ModalPaymentsGateways from "@Minecart/components/ModalPaymentsGateways";
+import NotFound from "@Minecart/components/NotFound";
 import { queryClient } from "@Minecart/contexts/providers/react-query";
 import { getBodyByUsername } from "@Minecart/helpers/minecraft";
 import { moneyFormat } from "@Minecart/helpers/utils";
@@ -39,7 +40,12 @@ const Cart = () => {
   }
 
   if (!items.length) {
-    return "cart vazio";
+    return (
+      <NotFound
+        title="Carrinho vazio"
+        description="Adicione produtos na loja para continuar sua compra."
+      />
+    );
   }
 
   const selectPaymentGateway = () => {
@@ -54,64 +60,82 @@ const Cart = () => {
   };
 
   return (
-    <div className="flex flex-col gap-3">
-      <div className="border">
-        <table className="table bg-white">
-          <thead>
-            <tr>
-              <td>#</td>
-              <td>{t("words.product")}</td>
-              <td>{t("words.quantity")}</td>
-              <td>{t("words.value")}</td>
-              <td></td>
-            </tr>
-          </thead>
-
-          <tbody>
-            {items.map((item, index) => {
-              return (
-                <tr key={item.id}>
-                  <td>{index + 1}</td>
-                  <td>
-                    <div className="flex gap-2 items-center">
-                      <img src={item.archive.url} className="w-[32px]" />
-
-                      <div className="flex flex-col text-left">
-                        <span className="font-bold">{item.name}</span>
-                        <small className="text-gray-500">ServerName</small>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      type="number"
-                      value={item.quantity}
-                      onChange={(event) => handleAmountChange(item.id, event)}
-                    />
-                  </td>
-                  <td>R$ {moneyFormat(item.price)}</td>
-                  <td>
-                    <img
-                      src="https://cdn.minecart.com.br/assets/img/icons/icon-delete.svg"
-                      className="cursor-pointer w-[22px]"
-                      onClick={() => handleRemoveProduct(item.id)}
-                    />
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+    <div className="page-stack">
+      <div>
+        <h1 className="section-title">Carrinho</h1>
+        <p className="mt-1 text-sm text-gray-500">
+          Revise os itens antes de finalizar o pagamento.
+        </p>
       </div>
 
-      <div className="flex justify-between items-start gap-3">
+      <Card className="overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="table min-w-[720px] bg-white">
+            <thead>
+              <tr>
+                <td>#</td>
+                <td>{t("words.product")}</td>
+                <td>{t("words.quantity")}</td>
+                <td>{t("words.value")}</td>
+                <td></td>
+              </tr>
+            </thead>
+
+            <tbody>
+              {items.map((item, index) => {
+                return (
+                  <tr key={item.id}>
+                    <td className="font-semibold text-gray-500">{index + 1}</td>
+                    <td>
+                      <div className="flex items-center gap-3">
+                        <img src={item.archive.url} className="h-11 w-11 object-contain" />
+
+                        <div className="flex flex-col text-left">
+                          <span className="font-bold text-gray-950">{item.name}</span>
+                          <small className="text-gray-500">ServerName</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        className="max-w-24"
+                        value={item.quantity}
+                        onChange={(event) => handleAmountChange(item.id, event)}
+                      />
+                    </td>
+                    <td className="font-semibold">R$ {moneyFormat(item.price)}</td>
+                    <td>
+                      <button
+                        type="button"
+                        className="grid h-9 w-9 place-items-center rounded-lg border border-red-100 bg-red-50 transition hover:bg-red-100"
+                        onClick={() => handleRemoveProduct(item.id)}
+                        aria-label="Remover produto"
+                      >
+                        <img
+                          src="https://cdn.minecart.com.br/assets/img/icons/icon-delete.svg"
+                          className="h-5 w-5"
+                        />
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </Card>
+
+      <div className="grid grid-cols-1 items-start gap-5 xl:grid-cols-[minmax(0,1fr)_360px]">
         <Card>
           <CardHeader>Dados do comprador</CardHeader>
 
-          <CardContent className="flex gap-3">
-            <img src={getBodyByUsername(username)} />
+          <CardContent className="flex flex-col gap-5 sm:flex-row">
+            <div className="grid h-56 w-full place-items-center rounded-lg bg-gray-50 sm:w-36">
+              <img src={getBodyByUsername(username)} className="max-h-52" />
+            </div>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex min-w-0 flex-1 flex-col gap-3">
               <input type="text" value={username} disabled />
 
               <Link to="/cart/profile" className="btn btn-primary text-center">
@@ -133,7 +157,7 @@ const Cart = () => {
           </CardContent>
         </Card>
 
-        <div className="max-w-[370px] flex flex-col gap-3">
+        <div className="flex flex-col gap-5">
           <Card>
             <CardHeader>{t("phrases.discountCoupon")}</CardHeader>
 
@@ -175,7 +199,7 @@ const Cart = () => {
                 Confirmar pagamento
               </button>
 
-              <div className="text-center">
+              <div className="text-center text-sm text-gray-500">
                 Ao efetuar o pagamento, você concorda com nossos{" "}
                 <Link to="#" className="text-link">
                   termos de uso

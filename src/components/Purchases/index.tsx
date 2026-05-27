@@ -17,15 +17,15 @@ const Purchases = () => {
 
   return (
     <Card>
-      <CardHeader className="bg-primary pb-3">{title}</CardHeader>
+      <CardHeader className="rounded-t-lg bg-primary pb-5 text-white">{title}</CardHeader>
 
       <CardContent className="flex flex-col gap-3">
         {store?.widgets.purchases.list.map((player, index) => (
-          <div key={player.buyer} className="flex justify-between items-center">
-            <div className="flex gap-1 items-center">
+          <div key={player.buyer} className="flex items-center justify-between gap-3 rounded-lg bg-gray-50 p-2">
+            <div className="flex min-w-0 items-center gap-2">
               <Img
                 src={getHelmByUsername(player.buyer, 32)}
-                className="rounded w-[32px]"
+                className="h-8 w-8 rounded"
                 effect="opacity"
                 placeholderSrc="https://cdn.minecart.com.br/assets/img/steve_head_64x64.png"
               />
@@ -33,15 +33,15 @@ const Purchases = () => {
               {index === 0 ? (
                 <img
                   src="https://cdn.minecart.com.br/assets/img/icons/icon-crown.svg"
-                  className="w-[28px]"
+                  className="h-6 w-6"
                 />
               ) : null}
 
-              <span>{player.buyer}</span>
+              <span className="truncate text-sm font-semibold">{player.buyer}</span>
             </div>
 
             {store.widgets.purchases.display_value ? (
-              <span>R$ {player.amount}</span>
+              <span className="shrink-0 text-sm font-bold text-gray-950">R$ {player.amount}</span>
             ) : null}
           </div>
         ))}

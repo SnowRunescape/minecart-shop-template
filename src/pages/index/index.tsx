@@ -31,8 +31,15 @@ const Index = () => {
   }
 
   return (
-    <div className="flex flex-col gap-3">
-      <div className="flex flex-col gap-3">
+    <div className="page-stack">
+      <div>
+        <h1 className="section-title">Noticias</h1>
+        <p className="mt-1 text-sm text-gray-500">
+          Fique por dentro das novidades do servidor.
+        </p>
+      </div>
+
+      <div className="flex flex-col gap-5">
         {currentPageData().map((news) => (
           <News key={news.id} news={news} />
         ))}
