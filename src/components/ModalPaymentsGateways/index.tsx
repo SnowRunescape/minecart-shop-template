@@ -1,3 +1,4 @@
+import Loading from "@Minecart/components/Loading";
 import { useGetGateways } from "@Minecart/services/gateways";
 import { cart } from "cart-ts";
 import { Gateway, minecart } from "minecart-sdk";
@@ -38,7 +39,13 @@ const ModalPaymentsGateways = () => {
   };
 
   if (isLoading) {
-    return "Carregando meios de pagamento...";
+    return (
+      <Loading
+        variant="inline"
+        title="Carregando pagamentos"
+        description="Buscando os meios de pagamento disponiveis."
+      />
+    );
   }
 
   if (!gateways || gateways?.length < 1) {

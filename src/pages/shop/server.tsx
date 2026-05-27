@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@Minecart/components/Card";
+import Loading from "@Minecart/components/Loading";
 import NotFound from "@Minecart/components/NotFound";
 import ServerComponent from "@Minecart/components/server";
 import useDocumentTitle from "@Minecart/hooks/useDocumentTitle";
@@ -11,7 +12,7 @@ const Server = () => {
   const { data: servers, isLoading } = useGetServers();
 
   if (isLoading) {
-    return "carregando";
+    return <Loading title="Carregando servidores" />;
   }
 
   if (servers?.length == 1) {

@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@Minecart/components/Card";
+import Loading from "@Minecart/components/Loading";
 import NotFound from "@Minecart/components/NotFound";
 import RuleComponent from "@Minecart/components/Rule";
 import useDocumentTitle from "@Minecart/hooks/useDocumentTitle";
@@ -10,7 +11,7 @@ const Rules = () => {
   const { data: rules, isLoading } = useGetRules();
 
   if (isLoading) {
-    return "carregando";
+    return <Loading title="Carregando regras" />;
   }
 
   if (!rules?.length) {

@@ -1,3 +1,4 @@
+import Loading from "@Minecart/components/Loading";
 import NotFound from "@Minecart/components/NotFound";
 import TeamComponent from "@Minecart/components/Team";
 import useDocumentTitle from "@Minecart/hooks/useDocumentTitle";
@@ -9,7 +10,7 @@ const Team = () => {
   const { data: team, isLoading } = useGetTeam();
 
   if (isLoading) {
-    return "carregando";
+    return <Loading title="Carregando equipe" />;
   }
 
   if (!team?.length) {

@@ -1,3 +1,4 @@
+import Loading from "@Minecart/components/Loading";
 import { MINECART_PUBLIC_KEY } from "@Minecart/config";
 import { useGetStore } from "@Minecart/services/store";
 import { minecart, Store } from "minecart-sdk";
@@ -12,7 +13,13 @@ export const StoreProvider = (props: { children: ReactNode }) => {
   const { children } = props;
 
   if (isLoading) {
-    return "Carregando..";
+    return (
+      <Loading
+        variant="screen"
+        title="Carregando loja"
+        description="Estamos carregando as informacoes da loja."
+      />
+    );
   }
 
   const rootStyles = {

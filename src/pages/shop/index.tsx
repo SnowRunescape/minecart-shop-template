@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@Minecart/components/Card";
 import CategoriesBar from "@Minecart/components/CategoriesBar";
+import Loading from "@Minecart/components/Loading";
 import NotFound from "@Minecart/components/NotFound";
 import ProductComponent from "@Minecart/components/product";
 import useDocumentTitle from "@Minecart/hooks/useDocumentTitle";
@@ -49,7 +50,7 @@ const Servers = () => {
   useSideBar(!categories?.length);
 
   if (isProductsPending || isCategoriesPending) {
-    return "carregando";
+    return <Loading title="Carregando produtos" />;
   }
 
   if (!products?.length) {

@@ -1,3 +1,4 @@
+import Loading from "@Minecart/components/Loading";
 import News from "@Minecart/components/News";
 import NotFound from "@Minecart/components/NotFound";
 import Pagination from "@Minecart/components/Pagination";
@@ -18,7 +19,7 @@ const Index = () => {
     });
 
   if (isLoading) {
-    return "carregando";
+    return <Loading title="Carregando noticias" />;
   }
 
   if (!news?.length) {
